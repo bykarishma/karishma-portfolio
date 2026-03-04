@@ -122,7 +122,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .hero-inner {
   position: relative;
   z-index: 2;
-  padding: 0 max(72px, calc((100% - 1080px)/2 + 72px)) 0 calc(max(72px, calc((100% - 1080px)/2 + 72px)) + 28px);
+  padding: 0 42% 0 calc(max(72px, calc((100% - 1080px)/2 + 72px)) + 28px);
   max-width: 100%;
   width: 100%;
 }
@@ -249,9 +249,12 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   right: 0;
   top: 0;
   bottom: 0;
-  width: 38%;
+  width: 36%;
   z-index: 1;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 48px 80px 40px;
 }
 .hero-right-rule {
   position: absolute;
@@ -263,45 +266,46 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   z-index: 3;
 }
 .hero-photo-wrap {
-  position: absolute;
-  inset: 60px 40px 60px 60px;
-  border-radius: 20px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 16px;
   overflow: hidden;
   opacity: 0;
   animation: fadeSlideIn 1.1s ease .6s forwards;
-  box-shadow: 0 24px 60px rgba(0,0,0,.1);
+  box-shadow: 0 32px 72px rgba(0,0,0,.12), 0 8px 20px rgba(0,0,0,.06);
+  /* Slight tilt for visual interest */
+  transform: rotate(1.5deg);
 }
 .hero-photo-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
-  filter: saturate(0.88);
+  object-position: center center;
+  filter: saturate(0.82) brightness(1.02);
 }
-/* Sage color wash overlay */
+/* Soft warm overlay */
 .hero-photo-wrap::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, rgba(147,181,151,0.18) 0%, transparent 60%);
+  background: linear-gradient(180deg, rgba(253,252,250,0.08) 0%, rgba(147,181,151,0.1) 100%);
   pointer-events: none;
 }
-/* Floating accent chip on photo */
-.hero-photo-chip {
+/* Decorative corner dot */
+.hero-photo-wrap::before {
+  content: '';
   position: absolute;
-  bottom: 80px;
-  right: 52px;
-  background: var(--white);
-  border: 1px solid var(--rule);
-  border-radius: 12px;
-  padding: 12px 18px;
-  z-index: 4;
-  opacity: 0;
-  animation: fadeSlideIn 1s ease .9s forwards;
-  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  top: -6px;
+  left: -6px;
+  width: 40px;
+  height: 40px;
+  border-top: 2px solid var(--sage-lt);
+  border-left: 2px solid var(--sage-lt);
+  border-radius: 4px 0 0 0;
+  z-index: 5;
+  pointer-events: none;
 }
-.hero-photo-chip-label { font-size:.56rem; letter-spacing:.18em; text-transform:uppercase; color:var(--soft); margin-bottom:4px; }
-.hero-photo-chip-val { font-family:'DM Serif Display',serif; font-style:italic; font-size:1rem; color:var(--sage-deep); }
 
 /* CTA row */
 .hero-cta-row {
@@ -581,7 +585,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 /* ── CONTACT ── */
 .contact { background:var(--bg); padding:70px max(72px, calc((100% - 1080px)/2 + 72px)); position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; text-align:center; border-top:1px solid var(--rule); }
 .contact-inner { position:relative; z-index:1; max-width:480px; }
-.contact h2 { font-family:'DM Serif Display',serif; color:var(--black); font-size:clamp(2.2rem,4vw,3.6rem); margin-bottom:14px; line-height:1.1; }
+.contact h2 { font-family:'DM Serif Display',serif; color:var(--black); font-size:clamp(2.6rem,4.5vw,4rem); margin-bottom:14px; line-height:1.1; }
 .contact h2 em { font-style:italic; color:var(--sage); display:inline; }
 .contact .label { color:var(--soft); }
 .contact .label::before { background:var(--rule); }
@@ -690,7 +694,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
   <div class="hero-right-panel">
     <div class="hero-right-rule"></div>
     <div class="hero-photo-wrap">
-      <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80&auto=format&fit=crop" alt="Minimal desk with laptop" />
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&auto=format&fit=crop" alt="Aerial desk flatlay" />
     </div>
   </div>
 
@@ -880,7 +884,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-inner reveal">
-    <h2>Let's build something <em>together.</em></h2>
+    <h2>Let's build something<br><em>together.</em></h2>
     <p class="contact-sub">Always exploring what's next. If you want to connect, I'd love to hear from you.</p>
     <a href="https://www.linkedin.com/in/karishma-amin/" target="_blank" class="clink">
       linkedin.com/in/karishma-amin <span class="clink-arr">→</span>

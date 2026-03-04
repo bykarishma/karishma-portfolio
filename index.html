@@ -282,8 +282,8 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
-  filter: saturate(0.85) brightness(1.03);
+  object-position: center top;
+  filter: saturate(0.78) brightness(1.06);
 }
 .hero-photo-wrap::after {
   content: '';
@@ -570,8 +570,8 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 
 /* ── CONTACT ── */
 .contact { background:var(--bg); padding:70px max(72px, calc((100% - 1080px)/2 + 72px)); position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; text-align:center; border-top:1px solid var(--rule); }
-.contact-inner { position:relative; z-index:1; max-width:480px; }
-.contact h2 { font-family:'DM Serif Display',serif; color:var(--black); font-size:clamp(2.6rem,4.5vw,4rem); margin-bottom:14px; line-height:1.1; }
+.contact-inner { position:relative; z-index:1; max-width:560px; }
+.contact h2 { font-family:'DM Serif Display',serif; color:var(--black); font-size:clamp(2rem,3.2vw,3rem); margin-bottom:14px; line-height:1.15; white-space:nowrap; }
 .contact h2 em { font-style:italic; color:var(--sage); display:inline; }
 .contact .label { color:var(--soft); }
 .contact .label::before { background:var(--rule); }
@@ -680,7 +680,11 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
   <div class="hero-right-panel">
     <div class="hero-right-rule"></div>
     <div class="hero-photo-wrap">
-      <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80&auto=format&fit=crop" alt="Desk flatlay with notebook and coffee" />
+      <!-- white desk aerial: laptop, coffee, clean light -->
+      <img 
+        src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&q=85&auto=format&fit=crop&crop=center"
+        onerror="this.src='https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&q=85&auto=format&fit=crop'"
+        alt="White desk with coffee and notebook" />
     </div>
   </div>
 

@@ -26,9 +26,9 @@ body { background: var(--bg); color: var(--black); font-family: 'Geist', sans-se
 #cur  { width:7px; height:7px; background:var(--sage); border-radius:50%; position:fixed; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:transform .1s; top:0; left:0; }
 #ring { width:30px; height:30px; border:1px solid var(--sage-lt); border-radius:50%; position:fixed; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:all .45s cubic-bezier(.23,1,.32,1); opacity:.3; top:0; left:0; }
 
-nav { position:fixed; top:0; left:0; right:0; padding:20px 72px; display:flex; justify-content:space-between; align-items:center; z-index:100; transition:background .3s, border-color .3s; border-bottom:1px solid transparent; }
+nav { position:fixed; top:0; left:0; right:0; padding:20px max(72px, calc((100% - 1080px)/2 + 72px)); display:flex; justify-content:space-between; align-items:center; z-index:100; transition:background .3s, border-color .3s; border-bottom:1px solid transparent; }
 nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); border-bottom-color:var(--rule); }
-.nav-logo { font-family:'DM Serif Display',serif; font-size:.75rem; font-style:italic; font-weight:400; text-decoration:none; color:var(--black); letter-spacing:.01em; }
+.nav-logo { font-family:'DM Serif Display',serif; font-size:.68rem; font-style:italic; font-weight:400; text-decoration:none; color:var(--black); letter-spacing:.14em; text-transform:uppercase; }
 .nav-links { display:flex; gap:36px; list-style:none; }
 .nav-links a { font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; text-decoration:none; color:var(--soft); transition:color .2s; }
 .nav-links a:hover { color:var(--black); }
@@ -122,8 +122,8 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .hero-inner {
   position: relative;
   z-index: 2;
-  padding: 0 72px 0 calc(72px + 28px);
-  max-width: 860px;
+  padding: 0 max(72px, calc((100% - 1080px)/2 + 72px)) 0 calc(max(72px, calc((100% - 1080px)/2 + 72px)) + 28px);
+  max-width: 100%;
   width: 100%;
 }
 
@@ -155,7 +155,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 
 /* Main heading */
 .hero-heading {
-  font-size: clamp(4rem, 8.5vw, 8.5rem);
+  font-size: clamp(3.2rem, 6.5vw, 6.5rem);
   font-weight: 400;
   line-height: .92;
   color: var(--black);
@@ -167,7 +167,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .hero-heading .hero-hi {
   font-family: 'DM Serif Display', serif;
   font-weight: 400;
-  font-size: clamp(2rem, 3.5vw, 3.6rem);
+  font-size: clamp(1.6rem, 2.8vw, 2.8rem);
   letter-spacing: -.01em;
   color: var(--dim);
   display: block;
@@ -389,8 +389,11 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .marquee-item::after { content:'·'; padding-left:30px; color:var(--sage-lt); }
 @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
+/* Global section content wrapper */
+.section-inner { max-width: 1080px; margin: 0 auto; }
+
 /* ── EXPERIENCE ── */
-.experience { background: var(--near); padding:60px 64px; position:relative; overflow:hidden; }
+.experience { background: var(--near); padding:60px max(72px, calc((100% - 1080px)/2 + 72px)); position:relative; overflow:hidden; }
 .experience .label { color:rgba(255,255,255,.35); }
 .experience .label::before { background:rgba(255,255,255,.15); }
 .exp-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:14px; }
@@ -480,7 +483,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 /* ── PROJECTS ── */
 .projects .label { color:var(--soft); }
 .projects .label::before { background:var(--rule); }
-.projects { background:var(--bg); padding:60px 64px; position:relative; overflow:hidden; }
+.projects { background:var(--bg); padding:60px max(72px, calc((100% - 1080px)/2 + 72px)); position:relative; overflow:hidden; }
 .projects-header { margin-bottom:24px; }
 .projects-header h2 { font-family:'DM Serif Display',serif; font-size:clamp(2.2rem,3.8vw,3.4rem); font-weight:400; line-height:1.1; color:var(--black); }
 .projects-header h2 em { font-style:italic; color:var(--sage); }
@@ -540,7 +543,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .v-t p { font-size:.74rem; color:rgba(255,255,255,.22); margin-top:3px; font-weight:300; line-height:1.5; }
 
 /* ── SKILLS ── */
-.skills { background: var(--near); padding: 60px 64px; }
+.skills { background: var(--near); padding: 60px max(72px, calc((100% - 1080px)/2 + 72px)); }
 .skills .label { color: rgba(255,255,255,.35); }
 .skills .label::before { background: rgba(255,255,255,.15); }
 .skills-header { margin-bottom: 40px; }
@@ -576,10 +579,10 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .skill-pill.core { background: var(--sage-bg); border-color: var(--sage-lt); color: var(--sage-deep); font-weight: 500; }
 
 /* ── CONTACT ── */
-.contact { background:var(--bg); padding:70px 64px; position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; text-align:center; border-top:1px solid var(--rule); }
-.contact-inner { position:relative; z-index:1; max-width:520px; }
-.contact h2 { font-family:'DM Serif Display',serif; color:var(--black); font-size:clamp(2.6rem,5vw,4.5rem); margin-bottom:14px; line-height:1.1; }
-.contact h2 em { font-style:italic; color:var(--sage); }
+.contact { background:var(--bg); padding:70px max(72px, calc((100% - 1080px)/2 + 72px)); position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; text-align:center; border-top:1px solid var(--rule); }
+.contact-inner { position:relative; z-index:1; max-width:480px; }
+.contact h2 { font-family:'DM Serif Display',serif; color:var(--black); font-size:clamp(2.2rem,4vw,3.6rem); margin-bottom:14px; line-height:1.1; }
+.contact h2 em { font-style:italic; color:var(--sage); display:inline; }
 .contact .label { color:var(--soft); }
 .contact .label::before { background:var(--rule); }
 .contact-sub { font-size:.88rem; color:var(--dim); line-height:1.75; margin-bottom:24px; }
@@ -597,7 +600,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .clink-arr { transition:transform .3s; }
 .clink:hover .clink-arr { transform:translateX(4px); }
 
-footer { background:var(--bg); border-top:1px solid var(--rule); padding:28px 64px; display:flex; justify-content:space-between; align-items:center; }
+footer { background:var(--bg); border-top:1px solid var(--rule); padding:28px max(72px, calc((100% - 1080px)/2 + 72px)); display:flex; justify-content:space-between; align-items:center; }
 footer p { font-size:.66rem; color:var(--soft); letter-spacing:.04em; }
 footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(--dim); }
 .footer-linkedin { font-size:.66rem; letter-spacing:.06em; text-decoration:none; color:var(--sage-deep); transition:color .2s; display:flex; align-items:center; gap:6px; }
@@ -687,7 +690,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
   <div class="hero-right-panel">
     <div class="hero-right-rule"></div>
     <div class="hero-photo-wrap">
-      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80&auto=format&fit=crop" alt="Phone with apps" />
+      <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80&auto=format&fit=crop" alt="Minimal desk with laptop" />
     </div>
   </div>
 
@@ -877,7 +880,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-inner reveal">
-    <h2>Let's build<br>something <em>together.</em></h2>
+    <h2>Let's build something <em>together.</em></h2>
     <p class="contact-sub">Always exploring what's next. If you want to connect, I'd love to hear from you.</p>
     <a href="https://www.linkedin.com/in/karishma-amin/" target="_blank" class="clink">
       linkedin.com/in/karishma-amin <span class="clink-arr">→</span>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Karishma — Product Manager</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -147,14 +147,15 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   animation: fadeSlideIn 1s ease .25s forwards;
 }
 .hero-heading .hero-hi {
-  font-size: clamp(1rem, 1.4vw, 1.2rem);
   font-family: 'DM Serif Display', serif;
-  font-weight: 400;
   font-style: normal;
-  letter-spacing: -.01em;
+  font-weight: 400;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  letter-spacing: .01em;
+  text-transform: none;
   color: var(--dim);
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 .hero-heading em {
   font-style: italic;
@@ -296,11 +297,14 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 }
 .principle-card:hover {
   transform: translateY(-8px) scale(1.03);
-  background: var(--white);
+  background: var(--sage-bg);
   border-color: var(--sage);
-  box-shadow: 0 20px 48px rgba(0,0,0,.22), 0 0 0 1px var(--sage-lt);
+  box-shadow: 0 20px 48px rgba(90,138,98,.2), 0 0 0 1px var(--sage);
   z-index: 2;
 }
+.principle-card:hover .principle-num { color: var(--sage-deep); }
+.principle-card:hover .principle-title { color: var(--sage-deep); font-weight: 500; }
+.principle-card:hover .principle-sub { color: var(--sage-deep); opacity: .75; }
 .principle-num {
   font-family: 'DM Serif Display', serif;
   font-style: italic;
@@ -329,7 +333,8 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .exp-summary:hover .exp-toggle { background:var(--sage); border-color:var(--sage); }
 .exp-summary:hover .exp-toggle-label, .exp-summary:hover .exp-chevron { color:#fff; }
 .exp-company.open .exp-summary { border-bottom:1px solid var(--rule); }
-.exp-co-name { font-family:'DM Serif Display',serif; font-size:1.6rem; font-weight:400; color:var(--black); margin-bottom:10px; }
+.exp-co-link { color: var(--sage-deep); text-decoration: none; font-size: .84rem; font-weight: 400; transition: color .2s; border-bottom: 1px solid var(--sage-lt); padding-bottom: 1px; }
+.exp-co-link:hover { color: var(--sage); border-bottom-color: var(--sage); }
 .exp-co-name em { font-style:italic; color:var(--sage-deep); }
 .exp-co-desc { font-size:.88rem; color:var(--dim); line-height:1.78; max-width:580px; }
 .exp-co-desc strong { color:var(--black); font-weight:400; }
@@ -341,17 +346,17 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .exp-company.open .exp-toggle { background:var(--sage); border-color:var(--sage); }
 .exp-company.open .exp-toggle-label, .exp-company.open .exp-chevron { color:#fff; }
 .exp-roles { max-height:0; overflow:hidden; transition:max-height .6s cubic-bezier(.23,1,.32,1); background:#fff; }
-.exp-company.open .exp-roles { max-height:900px; }
-.exp-role-item { padding:24px 40px; border-bottom:1px solid var(--rule); display:grid; grid-template-columns:180px 1fr; gap:28px; align-items:start; }
+.exp-company.open .exp-roles { max-height:1400px; }
+.exp-role-item { padding:24px 40px; border-bottom:1px solid var(--rule); display:grid; grid-template-columns:160px 1fr; gap:32px; align-items:start; }
 .exp-role-item:last-child { border-bottom:none; }
 .exp-role-left { padding-top:3px; }
 .exp-role-title { font-size:.88rem; font-weight:500; color:var(--black); margin-bottom:3px; letter-spacing:.01em; line-height:1.3; }
 .exp-role-period { font-size:.68rem; color:var(--sage-deep); letter-spacing:.05em; margin-bottom:6px; font-weight:400; }
 .exp-role-badge { display:inline-block; font-size:.55rem; letter-spacing:.1em; text-transform:uppercase; border:1px solid var(--rule); border-radius:100px; padding:2px 10px; color:var(--soft); }
 .exp-role-highlights { list-style:none; }
-.exp-role-highlights li { font-size:.84rem; color:var(--dim); line-height:1.6; padding:7px 0; display:flex; gap:12px; border-bottom:1px solid var(--rule); }
+.exp-role-highlights li { font-size:.83rem; color:var(--dim); line-height:1.65; padding:8px 0; display:flex; gap:12px; border-bottom:1px solid var(--rule); overflow-wrap:break-word; }
 .exp-role-highlights li:last-child { border-bottom:none; padding-bottom:0; }
-.exp-role-highlights li::before { content:'→'; color:var(--sage); flex-shrink:0; font-size:.78rem; margin-top:2px; }
+.exp-role-highlights li::before { content:'→'; color:var(--sage); flex-shrink:0; font-size:.75rem; margin-top:3px; }
 .exp-role-highlights li strong { color:var(--black); font-weight:500; }
 
 /* ── PROJECTS ── */
@@ -537,7 +542,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
 
     <h1 class="hero-heading">
       <span class="hero-hi">Hi, I'm</span>
-      <em>Karishma<span>
+      <em>Karishma</em>
     </h1>
 
     <p class="hero-tagline">Building for the "how did I live without this?" moment.</p>
@@ -623,6 +628,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
         <span class="exp-co-date">2021 — Present</span>
         <p class="exp-co-name">Helium <em>Mobile</em></p>
         <p class="exp-co-desc">Wireless connectivity shouldn't be a luxury. At Helium Mobile, we're building a phone carrier that makes connectivity affordable for everyone. I contribute to the product experience that gets people connected: the part that makes it <strong>real for someone who never thought they could afford a plan.</strong></p>
+        <a href="https://hellohelium.com" target="_blank" rel="noopener" class="exp-co-link" style="display:inline-block; margin-top:12px;">Check it out ↗</a>
       </div>
       <div class="exp-toggle">
         <span class="exp-toggle-label">My experience</span>
@@ -637,10 +643,11 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
           <span class="exp-role-badge">Remote</span>
         </div>
         <ul class="exp-role-highlights">
-          <li>Drove subscription growth by launching new plans, <strong>Group Plans,</strong> and <strong>Kids Plans</strong></li>
-          <li>Managed billing, tax, and CRM systems — compliance, scale, seamless UX</li>
-          <li>Designed onboarding and lifecycle comms that measurably increased <strong>activation and engagement</strong></li>
-          <li>Implemented SQL and Amplitude dashboards to monitor subscription health and inform decisions</li>
+          <li>Led end-to-end product ownership for Helium's mobile subscription service, driving growth from <strong>70k to 450k users</strong> by launching new plans, Group Plans, and Kids Plans</li>
+          <li>Built billing, tax, and CRM systems from scratch — ensuring compliance, scalability, and seamless UX across in-app and backend flows</li>
+          <li>Designed and executed user onboarding flows, retention strategies, and lifecycle comms including emails, notifications, and in-app guidance — increasing activation and engagement</li>
+          <li>Defined product vision, roadmap, and KPIs balancing business objectives, technical feasibility, and user needs</li>
+          <li>Leveraged AI-assisted tools to improve PRD clarity and streamline cross-functional workflows</li>
         </ul>
       </div>
       <div class="exp-role-item">
@@ -650,8 +657,10 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
           <span class="exp-role-badge">Remote</span>
         </div>
         <ul class="exp-role-highlights">
-          <li>Ran user research, beta programs, and analytics to validate features and reduce churn</li>
-          <li>Partnered with engineering and design to ship on tight timelines</li>
+          <li>Led design and launch of location-based activity tracking and mapping features, plus a user-facing dashboard to visualize progress</li>
+          <li>Implemented SQL and Amplitude dashboards to monitor subscription health, track payments and fraud, and inform decisions</li>
+          <li>Partnered with engineering, design, and data science to translate location data into actionable user insights, increasing daily engagement</li>
+          <li>Ran user research and beta programs to validate features and reduce churn</li>
         </ul>
       </div>
       <div class="exp-role-item">
@@ -661,8 +670,9 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
           <span class="exp-role-badge">Remote</span>
         </div>
         <ul class="exp-role-highlights">
-          <li>Redesigned device management flows, increasing mobile engagement by <strong>15%</strong></li>
-          <li>Conducted research with <strong>7,000+ users</strong> to prioritize the roadmap</li>
+          <li>Managed updates to a device management platform, redesigning flows to increase mobile engagement by <strong>15%</strong></li>
+          <li>Conducted research with <strong>7,000+ users</strong> to prioritize roadmap decisions and optimize product adoption</li>
+          <li>Developed foundational skills in lean product thinking, stakeholder communication, and customer-centered problem solving</li>
         </ul>
       </div>
     </div>
@@ -670,20 +680,11 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
 </section>
 <section class="projects" id="projects">
   <div class="projects-header reveal">
-    <p class="label">Projects</p>
+    <p class="label">Side Projects</p>
     <h2>What I'm<br><em>building.</em></h2>
   </div>
   <div class="projects-grid">
-    <a href="https://hellohelium.com" target="_blank" rel="noopener" class="proj-card reveal">
-      <div class="proj-status"><div class="proj-dot static"></div>Full-time · 2021 — Present</div>
-      <p class="proj-title">Helium <em>Mobile</em></p>
-      <p class="proj-body">A phone carrier that aims to bring affordable connectivity to everyone. I contribute to the product that gets people connected — the part that makes it real for someone who never thought connectivity was within their reach.</p>
-      <div class="proj-tags">
-        <span class="proj-tag">Telecom</span><span class="proj-tag">B2C Mobile</span><span class="proj-tag">Subscription</span><span class="proj-tag">0→1</span>
-      </div>
-      <div class="proj-cta-btn">Visit hellohelium.com <span>↗</span></div>
-    </a>
-    <a href="lovetivity.html" class="proj-card proj-card-love reveal d1">
+    <a href="lovetivity.html" class="proj-card proj-card-love reveal">
       <div class="proj-heart-row">
         <span class="proj-heart">♥</span>
         <span class="proj-heart">♥</span>
@@ -696,6 +697,15 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
         <span class="proj-tag">Mobile</span><span class="proj-tag">Health & Fitness</span><span class="proj-tag">Consumer</span>
       </div>
       <div class="proj-cta-btn">View project <span>↗</span></div>
+    </a>
+    <a href="#" class="proj-card reveal d1" style="opacity:.6; pointer-events:none;">
+      <div class="proj-status"><div class="proj-dot"></div>Coming soon</div>
+      <p class="proj-title" style="font-family:'DM Serif Display',serif; font-style:italic;">Substack</p>
+      <p class="proj-body">Writing about product, building in public, and the messy middle of shipping things people love. Coming soon.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Writing</span><span class="proj-tag">Product</span><span class="proj-tag">Building in Public</span>
+      </div>
+      <div class="proj-cta-btn" style="background:var(--soft);">Coming soon</div>
     </a>
   </div>
 </section>

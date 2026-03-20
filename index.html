@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Karishma — Product Manager</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -405,6 +405,72 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .proj-card:hover .proj-cta-btn { background: #3d6644; }
 .proj-card-love .proj-cta-btn { background: #b56270; }
 .proj-card-love:hover .proj-cta-btn { background: #8f4452; }
+/* Velum card — matches actual Velum design system */
+.proj-card-velum {
+  background: linear-gradient(135deg, #eef4f0 0%, #e8f0f5 50%, #edf0f8 100%);
+  border-color: rgba(61,107,74,0.2);
+  position: relative;
+  overflow: hidden;
+}
+.proj-card-velum::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(61,107,74,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.proj-card-velum::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(147,197,253,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.proj-card-velum:hover { border-color: rgba(61,107,74,0.4); box-shadow: 0 12px 36px rgba(61,107,74,.12); }
+.proj-card-velum .proj-cta-btn { background: #3d6b4a; }
+.proj-card-velum:hover .proj-cta-btn { background: #2e5238; }
+.proj-velum-header {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+}
+.proj-velum-logo {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: #3d6b4a;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.proj-velum-wordmark {
+  font-family: 'DM Mono', monospace;
+  font-size: .82rem; letter-spacing: .32em;
+  text-transform: uppercase; color: #1a1a2e; font-weight: 400;
+}
+/* Mini calendar preview widget inside card */
+.velum-mini-cal {
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(8px);
+}
+.velum-mini-cal-row {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-bottom: 6px;
+}
+.velum-mini-cal-day {
+  font-size: .52rem; letter-spacing: .06em; text-transform: uppercase;
+  color: #9ca3af; text-align: center; padding-bottom: 4px;
+  font-family: 'Geist', sans-serif;
+}
+.velum-mini-cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.velum-mini-cal-cell {
+  aspect-ratio: 1; border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .6rem; color: #6b7280; font-family: 'Geist', sans-serif;
+}
+.velum-mini-cal-cell.active { background: #3d6b4a; color: white; font-weight: 600; }
+.velum-mini-cal-cell.has-event { background: rgba(61,107,74,0.1); color: #3d6b4a; font-weight: 500; }
+.velum-mini-cal-cell.muted { color: #d1d5db; }
 
 /* ── ABOUT ── */
 .about { background:var(--black); padding:60px 64px; position:relative; overflow:hidden; }
@@ -643,7 +709,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
           <span class="exp-role-badge">Remote</span>
         </div>
         <ul class="exp-role-highlights">
-          <li>Led end-to-end product ownership for Helium's mobile subscription service, driving growth from 70k to 450k users by launching new plans, Group Plans, and Kids Plans</li>
+          <li>Led end-to-end product ownership for Helium's mobile subscription service, driving growth from <strong>70k to 450k users</strong> by launching new plans, Group Plans, and Kids Plans</li>
           <li>Built billing, tax, and CRM systems from scratch — ensuring compliance, scalability, and seamless UX across in-app and backend flows</li>
           <li>Designed and executed user onboarding flows, retention strategies, and lifecycle comms including emails, notifications, and in-app guidance — increasing activation and engagement</li>
           <li>Defined product vision, roadmap, and KPIs balancing business objectives, technical feasibility, and user needs</li>
@@ -692,18 +758,44 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
       </div>
       <div class="proj-status"><div class="proj-dot"></div>In progress · Side project</div>
       <p class="proj-title">Lovetivity</p>
-      <p class="proj-body">Long distance relationships are hard. Building progress is more rewarding when your partner gets to be a part of the journey. An app for couples to get fit together, stay accountable, and feel close even when they're far apart.</p>
+      <p class="proj-body">Lovetivity is a couples fitness app that turns working out into an act of love, a way to show up for yourself and your partner at the same time. Because the strongest relationships are built on shared commitments, daily consistency, and choosing each other, even on the days you'd rather skip leg day.</p>
       <div class="proj-tags">
-        <span class="proj-tag">Mobile</span><span class="proj-tag">Health & Fitness</span><span class="proj-tag">Consumer</span>
+        <span class="proj-tag">Mobile</span><span class="proj-tag">Health & Fitness</span><span class="proj-tag">Consumer</span></span><span class="proj-tag">Relationship</span>
       </div>
       <div class="proj-cta-btn">View project <span>↗</span></div>
     </a>
-    <a href="#" class="proj-card reveal d1" style="opacity:.6; pointer-events:none;">
+    <a href="https://usevelum.vercel.app" target="_blank" rel="noopener" class="proj-card proj-card-velum reveal d1">
+      <div class="proj-velum-header">
+        <div class="proj-velum-logo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <span class="proj-velum-wordmark">Velum</span>
+      </div>
+      <!-- Mini calendar echoing the actual dashboard -->
+      <div class="velum-mini-cal">
+        <div class="velum-mini-cal-row">
+          <div class="velum-mini-cal-day">S</div><div class="velum-mini-cal-day">M</div><div class="velum-mini-cal-day">T</div><div class="velum-mini-cal-day">W</div><div class="velum-mini-cal-day">T</div><div class="velum-mini-cal-day">F</div><div class="velum-mini-cal-day">S</div>
+        </div>
+        <div class="velum-mini-cal-grid">
+          <div class="velum-mini-cal-cell muted">26</div><div class="velum-mini-cal-cell muted">27</div><div class="velum-mini-cal-cell muted">28</div><div class="velum-mini-cal-cell">1</div><div class="velum-mini-cal-cell has-event">2</div><div class="velum-mini-cal-cell">3</div><div class="velum-mini-cal-cell">4</div>
+          <div class="velum-mini-cal-cell">5</div><div class="velum-mini-cal-cell has-event">6</div><div class="velum-mini-cal-cell">7</div><div class="velum-mini-cal-cell">8</div><div class="velum-mini-cal-cell has-event">9</div><div class="velum-mini-cal-cell">10</div><div class="velum-mini-cal-cell">11</div>
+          <div class="velum-mini-cal-cell">12</div><div class="velum-mini-cal-cell">13</div><div class="velum-mini-cal-cell has-event">14</div><div class="velum-mini-cal-cell">15</div><div class="velum-mini-cal-cell active">16</div><div class="velum-mini-cal-cell">17</div><div class="velum-mini-cal-cell">18</div>
+        </div>
+      </div>
+      <div class="proj-status"><div class="proj-dot"></div>In progress · Side project</div>
+      <p class="proj-title">Velum</p>
+      <p class="proj-body">Medical students carry an impossible cognitive load. Velum removes the planning entirely — a personalized smart schedule generator, relaxing UI, and a one-click reset when life gets in the way.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Web App</span><span class="proj-tag">EdTech</span><span class="proj-tag">AI</span><span class="proj-tag">0→1</span>
+      </div>
+      <div class="proj-cta-btn">Explore Velum<span>↗</span></div>
+    </a>
+    <a href="#" class="proj-card reveal d2" style="opacity:.6; pointer-events:none;">
       <div class="proj-status"><div class="proj-dot"></div>Coming soon</div>
       <p class="proj-title" style="font-family:'DM Serif Display',serif; font-style:italic;">Substack</p>
-      <p class="proj-body">Writing about product, building in public, and the messy middle of shipping things people love. Coming soon.</p>
+      <p class="proj-body">Honest takes on product management, early careers, and everything in between. Coming soon.</p>
       <div class="proj-tags">
-        <span class="proj-tag">Writing</span><span class="proj-tag">Product</span><span class="proj-tag">Building in Public</span>
+        <span class="proj-tag">Growth</span><span class="proj-tag">Product</span><span class="proj-tag">Building in Public</span>
       </div>
       <div class="proj-cta-btn" style="background:var(--soft);">Coming soon</div>
     </a>
@@ -748,12 +840,10 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
         <span class="skill-pill core">User Research</span>
         <span class="skill-pill core">OKR Setting</span>
         <span class="skill-pill core">A/B Testing</span>
-        <span class="skill-pill">Looker</span>
-        <span class="skill-pill">Mixpanel</span>
         <span class="skill-pill">Retention Analysis</span>
         <span class="skill-pill">Stakeholder Management</span>
         <span class="skill-pill">Figma</span>
-        <span class="skill-pill">Jira</span>
+        <span class="skill-pill">Linear</span>
         <span class="skill-pill">Notion</span>
       </div>
     </div>

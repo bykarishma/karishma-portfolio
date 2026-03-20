@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Karishma — Product Manager</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400&family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&family=DM+Sans:wght@300;400;500&family=Geist:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -378,14 +378,56 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .proj-body { font-size:.87rem; line-height:1.85; color:var(--dim); margin-bottom:24px; flex:1; }
 .proj-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:24px; }
 .proj-tag { font-size:.58rem; letter-spacing:.09em; text-transform:uppercase; padding:3px 11px; border:1px solid var(--rule); border-radius:100px; color:var(--soft); }
-/* Heart accent for Lovetivity */
-.proj-card-love { background: linear-gradient(140deg, #fffcfc 0%, #fff5f6 100%); border-color: #f0d8db; }
-.proj-card-love:hover { border-color: #d4909a; box-shadow:0 12px 36px rgba(180,80,100,.09); }
-.proj-heart-row { display:flex; align-items:center; gap:5px; margin-bottom:14px; }
-.proj-heart { font-size:.95rem; display:inline-block; animation: heartbeat 2.2s ease-in-out infinite; }
-.proj-heart:nth-child(2) { animation-delay:.3s; opacity:.65; font-size:.75rem; }
-.proj-heart:nth-child(3) { animation-delay:.6s; opacity:.35; font-size:.6rem; }
-@keyframes heartbeat { 0%,100%{transform:scale(1)} 45%{transform:scale(1.25)} }
+/* Heart accent for Lovetivity — real design system */
+.proj-card-love {
+  background: linear-gradient(145deg, #2C1A0E 0%, #3d2410 60%, #2C1A0E 100%);
+  border-color: rgba(232,97,74,0.25);
+  color: #FDF6EE;
+}
+.proj-card-love:hover { border-color: rgba(232,97,74,0.5); box-shadow: 0 12px 36px rgba(232,97,74,.15); }
+.proj-card-love .proj-body { color: rgba(253,246,238,0.6); }
+.proj-card-love .proj-tag { border-color: rgba(253,246,238,0.12); color: rgba(253,246,238,0.45); background: rgba(253,246,238,0.04); }
+.proj-card-love .proj-status { color: rgba(253,246,238,0.4); }
+.proj-card-love .proj-dot { background: #E8614A; }
+.proj-card-love .proj-cta-btn { background: #E8614A; color: white; }
+.proj-card-love:hover .proj-cta-btn { background: #c94d38; }
+/* Lovetivity title uses Fraunces serif */
+.proj-card-love .proj-title { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; color: #FDF6EE; }
+/* Mini app preview */
+.love-preview {
+  background: rgba(253,246,238,0.06);
+  border: 1px solid rgba(253,246,238,0.1);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.love-preview-header {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.love-preview-title {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: .72rem; color: rgba(253,246,238,0.9); font-weight: 300;
+}
+.love-streak {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(232,97,74,0.25); border-radius: 8px;
+  padding: 4px 9px;
+}
+.love-streak-num { font-family: 'Fraunces', serif; font-size: .85rem; color: rgba(253,246,238,0.9); font-weight: 500; }
+.love-streak-label { font-size: .52rem; color: rgba(253,246,238,0.5); letter-spacing: .06em; text-transform: uppercase; }
+.love-bars { display: flex; flex-direction: column; gap: 6px; }
+.love-bar-row { display: flex; align-items: center; gap: 8px; }
+.love-bar-dot { width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; }
+.love-bar-track { flex: 1; height: 5px; border-radius: 99px; background: rgba(253,246,238,0.08); overflow: hidden; }
+.love-bar-fill { height: 100%; border-radius: 99px; }
+.love-bar-label { font-size: .58rem; color: rgba(253,246,238,0.4); width: 26px; text-align: right; font-family: 'DM Sans', sans-serif; }
+.love-bubbles { display: flex; flex-direction: column; gap: 5px; }
+.love-bubble { font-size: .65rem; padding: 5px 10px; border-radius: 10px; max-width: 80%; line-height: 1.3; font-family: 'DM Sans', sans-serif; }
+.love-bubble.them { background: rgba(255,255,255,0.1); color: rgba(253,246,238,0.75); border-radius: 10px 10px 10px 3px; }
+.love-bubble.me { background: #E8614A; color: white; border-radius: 10px 10px 3px 10px; align-self: flex-end; margin-left: auto; }
 /* Full-width CTA button at card bottom */
 .proj-cta-btn {
   display: flex;
@@ -751,16 +793,37 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
   </div>
   <div class="projects-grid">
     <a href="lovetivity.html" class="proj-card proj-card-love reveal">
-      <div class="proj-heart-row">
-        <span class="proj-heart">♥</span>
-        <span class="proj-heart">♥</span>
-        <span class="proj-heart">♥</span>
+      <!-- Mini app preview using real Lovetivity design system -->
+      <div class="love-preview">
+        <div class="love-preview-header">
+          <span class="love-preview-title">Today's workout</span>
+          <div class="love-streak">
+            <span class="love-streak-num">🔥 12</span>
+            <span class="love-streak-label">day streak</span>
+          </div>
+        </div>
+        <div class="love-bars">
+          <div class="love-bar-row">
+            <div class="love-bar-dot" style="background:#E8614A;"></div>
+            <div class="love-bar-track"><div class="love-bar-fill" style="width:78%; background:#E8614A;"></div></div>
+            <span class="love-bar-label">You</span>
+          </div>
+          <div class="love-bar-row">
+            <div class="love-bar-dot" style="background:#7A9E7E;"></div>
+            <div class="love-bar-track"><div class="love-bar-fill" style="width:55%; background:#7A9E7E;"></div></div>
+            <span class="love-bar-label">Them</span>
+          </div>
+        </div>
+        <div class="love-bubbles">
+          <div class="love-bubble them">done with my run 🏃</div>
+          <div class="love-bubble me">let's gooo!! 🔥</div>
+        </div>
       </div>
       <div class="proj-status"><div class="proj-dot"></div>In progress · Side project</div>
       <p class="proj-title">Lovetivity</p>
       <p class="proj-body">Lovetivity is a couples fitness app that turns working out into an act of love, a way to show up for yourself and your partner at the same time. Because the strongest relationships are built on shared commitments, daily consistency, and choosing each other, even on the days you'd rather skip leg day.</p>
       <div class="proj-tags">
-        <span class="proj-tag">Mobile</span><span class="proj-tag">Health & Fitness</span><span class="proj-tag">Consumer</span></span><span class="proj-tag">Relationship</span>
+        <span class="proj-tag">Mobile</span><span class="proj-tag">Health & Fitness</span><span class="proj-tag">Consumer</span><span class="proj-tag">Relationship</span>
       </div>
       <div class="proj-cta-btn">View project <span>↗</span></div>
     </a>
@@ -788,14 +851,14 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
       <div class="proj-tags">
         <span class="proj-tag">Web App</span><span class="proj-tag">EdTech</span><span class="proj-tag">AI</span><span class="proj-tag">0→1</span>
       </div>
-      <div class="proj-cta-btn">Explore Velum<span>↗</span></div>
+      <div class="proj-cta-btn">Visit Velum <span>↗</span></div>
     </a>
     <a href="#" class="proj-card reveal d2" style="opacity:.6; pointer-events:none;">
       <div class="proj-status"><div class="proj-dot"></div>Coming soon</div>
       <p class="proj-title" style="font-family:'DM Serif Display',serif; font-style:italic;">Substack</p>
-      <p class="proj-body">Honest takes on product management, early careers, and everything in between. Coming soon.</p>
+      <p class="proj-body">Writing about product, building in public, and the messy middle of shipping things people love. Coming soon.</p>
       <div class="proj-tags">
-        <span class="proj-tag">Growth</span><span class="proj-tag">Product</span><span class="proj-tag">Building in Public</span>
+        <span class="proj-tag">Writing</span><span class="proj-tag">Product</span><span class="proj-tag">Building in Public</span>
       </div>
       <div class="proj-cta-btn" style="background:var(--soft);">Coming soon</div>
     </a>
@@ -840,10 +903,12 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
         <span class="skill-pill core">User Research</span>
         <span class="skill-pill core">OKR Setting</span>
         <span class="skill-pill core">A/B Testing</span>
+        <span class="skill-pill">Looker</span>
+        <span class="skill-pill">Mixpanel</span>
         <span class="skill-pill">Retention Analysis</span>
         <span class="skill-pill">Stakeholder Management</span>
         <span class="skill-pill">Figma</span>
-        <span class="skill-pill">Linear</span>
+        <span class="skill-pill">Jira</span>
         <span class="skill-pill">Notion</span>
       </div>
     </div>

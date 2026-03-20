@@ -355,20 +355,74 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .modal-submit:active { transform: scale(0.98); }
 
 /* ── METRICS STRIP ── */
-<section class="metrics-strip">
+/* ── METRICS STRIP FIX ── */
+.metrics-strip {
+  background: var(--bark);
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 40px 72px; /* Increased padding for breathability */
+  display: flex; 
+  align-items: center; 
+  justify-content: center; /* Centers the whole group */
+  gap: 0; 
+  width: 100%;
+}
+
+.metric-item { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; /* Centers text inside the item */
+  text-align: center;
+  padding: 0 40px; 
+  flex: 1; 
+}
+
+.metric-num { 
+  font-family: 'Fraunces', serif; 
+  font-size: 2.2rem; /* Made larger for impact */
+  font-weight: 300; 
+  color: var(--cream); 
+  line-height: 1; 
+  margin-bottom: 8px;
+}
+
+.metric-num em { 
+  font-style: italic; 
+  color: var(--rose); 
+}
+
+.metric-label { 
+  font-size: .75rem; 
+  color: rgba(253,246,238,.5); 
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.4; 
+}
+
+/* The vertical divider line */
+.metric-div { 
+  width: 1px; 
+  height: 40px; 
+  background: rgba(255,255,255,.15); 
+  flex-shrink: 0; 
+}
+  <section class="metrics-strip">
   <div class="metric-item">
     <p class="metric-num">4.5<em>M</em></p>
     <p class="metric-label">LDR Couples in the US</p>
   </div>
+
   <div class="metric-div"></div>
+
   <div class="metric-item">
     <p class="metric-num">68<em>%</em></p>
-    <p class="metric-label">Retention via Shared Loops</p>
+    <p class="metric-label">Higher Consistency</p>
   </div>
+
   <div class="metric-div"></div>
+
   <div class="metric-item">
-    <p class="metric-num">14<em>d</em></p>
-    <p class="metric-label">Avg. Habit Formation</p>
+    <p class="metric-num">3<em>×</em></p>
+    <p class="metric-label">Retention via Loops</p>
   </div>
 </section>
   

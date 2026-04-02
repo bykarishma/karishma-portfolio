@@ -376,7 +376,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .projects-header { margin-bottom:24px; }
 .projects-header h2 { font-family:'DM Serif Display',serif; font-size:clamp(2.2rem,3.8vw,3.4rem); font-weight:400; line-height:1.1; color:var(--black); }
 .projects-header h2 em { font-style:italic; color:var(--sage); }
-.projects-grid { position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.projects-grid { position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; }
 .proj-card { background:var(--white); border:1px solid var(--rule); border-radius:16px; padding:36px 36px 28px; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:all .3s; position:relative; overflow:hidden; }
 .proj-card:hover { border-color:var(--sage); transform:translateY(-4px); box-shadow:0 12px 36px rgba(0,0,0,.07); }
 .proj-status { display:inline-flex; align-items:center; gap:7px; font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:var(--soft); margin-bottom:20px; }
@@ -615,7 +615,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
 @media(max-width:900px){
   .hero-inner { padding: 0 28px; }
   nav,.experience,.projects,.about,.skills,.contact { padding-left:28px; padding-right:28px; }
-  .about-grid,.projects-grid { grid-template-columns:1fr; gap:32px; }
+  .about-grid,.projects-grid { grid-template-columns:1fr; gap:20px; }
   .skills-layout { grid-template-columns:1fr; }
   footer { padding:20px 28px; flex-direction:column; gap:6px; }
   .hero-ghost-word { display:none; }

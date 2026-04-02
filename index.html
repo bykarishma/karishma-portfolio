@@ -556,32 +556,33 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .skills { background: var(--near); padding: 60px max(72px, calc((100% - 1080px)/2 + 72px)); }
 .skills .label { color: rgba(255,255,255,.35); }
 .skills .label::before { background: rgba(255,255,255,.15); }
-.skills-header { margin-bottom: 40px; }
+.skills-header { margin-bottom: 24px; }
 .skills-header h2 { font-family:'DM Serif Display',serif; font-size:clamp(2.2rem,3.8vw,3.4rem); font-weight:400; color:#F0EFEB; line-height:1.05; }
 .skills-header h2 em { font-style:italic; color:var(--sage); }
 
-.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.skill-group-full { grid-column: 1 / -1; }
 
 .skill-group {
   background: var(--white);
   border: 1px solid var(--rule);
-  border-radius: 14px;
-  padding: 22px 24px;
+  border-radius: 12px;
+  padding: 16px 18px;
 }
 .skill-group-header {
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px;
 }
 .skill-group-icon {
-  width: 30px; height: 30px; border-radius: 8px;
+  width: 26px; height: 26px; border-radius: 7px;
   background: var(--sage-bg); border: 1px solid var(--sage-lt);
   display: flex; align-items: center; justify-content: center;
-  font-size: .85rem; flex-shrink: 0;
+  font-size: .78rem; flex-shrink: 0;
 }
-.skill-group-title { font-size: .8rem; font-weight: 500; color: var(--black); }
-.skill-tags-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill-group-title { font-size: .78rem; font-weight: 500; color: var(--black); }
+.skill-tags-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
 .skill-pill {
-  font-size: .65rem; padding: 5px 12px; border-radius: 100px;
+  font-size: .62rem; padding: 4px 10px; border-radius: 100px;
   border: 1px solid var(--rule); color: var(--dim); background: var(--bg);
   cursor: default; transition: background .2s, border-color .2s, color .2s;
 }
@@ -952,7 +953,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
       </div>
     </div>
 
-    <div class="skill-group">
+    <div class="skill-group skill-group-full">
       <div class="skill-group-header">
         <div class="skill-group-icon">🏥</div>
         <p class="skill-group-title">Health & Compliance</p>

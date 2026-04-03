@@ -379,6 +379,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .projects-header h2 { font-family:'DM Serif Display',serif; font-size:clamp(2.2rem,3.8vw,3.4rem); font-weight:400; line-height:1.1; color:var(--black); }
 .projects-header h2 em { font-style:italic; color:var(--sage); }
 .projects-grid { position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; }
+@media(max-width:1100px){ .projects-grid { grid-template-columns:1fr 1fr; } }
 .proj-card { background:var(--white); border:1px solid var(--rule); border-radius:16px; padding:36px 36px 28px; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:all .3s; position:relative; overflow:hidden; }
 .proj-card:hover { border-color:var(--sage); transform:translateY(-4px); box-shadow:0 12px 36px rgba(0,0,0,.07); }
 .proj-status { display:inline-flex; align-items:center; gap:7px; font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:var(--soft); margin-bottom:20px; }
@@ -498,6 +499,39 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .proj-card-hearth .proj-tag { border-color: rgba(114,47,55,0.18); color: #9a6b6e; background: rgba(114,47,55,0.05); }
 .proj-card-hearth .proj-cta-btn { background: #722F37; color: #FAF0F1; }
 .proj-card-hearth:hover .proj-cta-btn { background: #5c2028; }
+/* Hearth preview mockup */
+.hearth-preview {
+  background: #F0EBE3;
+  border: 1px solid rgba(114,47,55,0.14);
+  border-radius: 14px;
+  padding: 22px 16px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+.hearth-preview-icon {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(114,47,55,0.08);
+  display: flex; align-items: center; justify-content: center;
+}
+.hearth-preview-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: #722F37;
+  line-height: 1;
+}
+.hearth-preview-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: .78rem;
+  color: #9a6b6e;
+  line-height: 1.5;
+}
 .proj-velum-header {
   display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
 }
@@ -831,22 +865,29 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
           <div class="velum-mini-cal-cell">12</div><div class="velum-mini-cal-cell">13</div><div class="velum-mini-cal-cell has-event">14</div><div class="velum-mini-cal-cell">15</div><div class="velum-mini-cal-cell active">16</div><div class="velum-mini-cal-cell">17</div><div class="velum-mini-cal-cell">18</div>
         </div>
       </div>
-      <div class="proj-status"><div class="proj-dot"></div>Live</div>
+      <div class="proj-status"><div class="proj-dot"></div>Live · In Beta</div>
       <p class="proj-title">Rotaset</p>
       <p class="proj-body">A smart study scheduler built for medical students. Rotaset removes the planning overhead entirely — personalized schedule generation, a calming UI, and a one-click reset when life gets in the way.</p>
       <div class="proj-tags">
         <span class="proj-tag">Web App</span><span class="proj-tag">EdTech</span><span class="proj-tag">AI</span><span class="proj-tag">HealthTech</span>
       </div>
-      <div class="proj-cta-btn">Visit rotaset.org <span>↗</span></div>
+      <div class="proj-cta-btn">Explore Rotaset <span>↗</span></div>
     </a>
     <a href="https://hearth.today" target="_blank" rel="noopener" class="proj-card proj-card-hearth reveal d1">
+      <div class="hearth-preview">
+        <div class="hearth-preview-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#722F37" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <p class="hearth-preview-wordmark">Hearth</p>
+        <p class="hearth-preview-tagline">For everyone navigating caregiving<br>before they feel ready.</p>
+      </div>
       <div class="proj-status"><div class="proj-dot"></div>Live</div>
       <p class="proj-title">Hearth</p>
       <p class="proj-body">A free caregiver briefing tool for people who become caregivers before they feel ready. Ten minutes to go from overwhelmed to organized.</p>
       <div class="proj-tags">
         <span class="proj-tag">HealthTech</span><span class="proj-tag">AI</span><span class="proj-tag">0→1</span>
       </div>
-      <div class="proj-cta-btn">Visit Hearth <span>↗</span></div>
+      <div class="proj-cta-btn">Explore Hearth <span>↗</span></div>
     </a>
     <a href="lovetivity.html" class="proj-card proj-card-love reveal d2">
       <!-- Mini app preview using real Lovetivity design system -->
@@ -877,11 +918,11 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
       </div>
       <div class="proj-status"><div class="proj-dot"></div>In progress · Side project</div>
       <p class="proj-title">Lovetivity</p>
-      <p class="proj-body">Lovetivity is a couples fitness app that turns working out into an act of love, a way to show up for yourself and your partner at the same time. Because the strongest relationships are built on shared commitments, daily consistency, and choosing each other, even on the days you'd rather skip leg day.</p>
+      <p class="proj-body">A couples fitness app that turns working out into a shared commitment. Show up for yourself and your partner at the same time.</p>
       <div class="proj-tags">
         <span class="proj-tag">Mobile</span><span class="proj-tag">Health & Fitness</span><span class="proj-tag">Consumer</span><span class="proj-tag">Relationship</span>
       </div>
-      <div class="proj-cta-btn">View project <span>↗</span></div>
+      <div class="proj-cta-btn">Explore Lovetivity <span>↗</span></div>
     </a>
   </div>
 </section>

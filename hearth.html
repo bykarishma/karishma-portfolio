@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hearth — Case Study | Karishma Amin</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent:   #722F37;
+  --accent-lt:#9a5560;
+  --accent-bg:rgba(114,47,55,0.06);
+  --accent-border:rgba(114,47,55,0.14);
+  --bg:       #F0EBE3;
+  --card-bg:  #FAF5F0;
+  --text:     #1e1010;
+  --muted:    #7a5a5a;
+  --rule:     rgba(114,47,55,0.14);
+  --white:    #FDFAF7;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(240,235,227,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 72px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-logo {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: .82rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+}
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.header-nav a {
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  transition: color .2s;
+}
+.header-nav a:hover { color: var(--text); }
+.header-nav .visit-link {
+  color: var(--accent);
+  font-weight: 500;
+}
+.header-nav .visit-link:hover { color: var(--accent-lt); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--rule);
+  padding: 72px 72px 60px;
+}
+.hero-inner { max-width: 760px; }
+.hero-label-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.hero-label-text {
+  font-size: .6rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero-rule { width: 24px; height: 1px; background: var(--rule); }
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(3.2rem, 7vw, 6rem);
+  font-weight: 400;
+  color: var(--accent);
+  line-height: .95;
+  margin-bottom: 16px;
+  letter-spacing: -.01em;
+}
+.hero-descriptor {
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(114,47,55,0.07);
+  border: 1px solid var(--accent-border);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: .6rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 32px;
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7a9e7a;
+  flex-shrink: 0;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 28px;
+  background: var(--accent);
+  color: #FAF0F1;
+  text-decoration: none;
+  border-radius: 100px;
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background .25s, transform .2s;
+}
+.hero-cta:hover { background: #5c2028; transform: translateY(-1px); }
+
+/* ── PREVIEW STRIP ── */
+.preview-strip {
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  padding: 36px 0;
+  overflow-x: auto;
+}
+.preview-strip-inner {
+  display: flex;
+  gap: 20px;
+  padding: 0 72px;
+  width: max-content;
+}
+.mockup-card {
+  width: 300px;
+  height: 210px;
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+.mockup-topbar {
+  background: var(--accent);
+  padding: 9px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.mockup-topbar-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+}
+.mockup-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: .88rem;
+  color: rgba(255,255,255,0.92);
+  font-weight: 400;
+  margin-left: 4px;
+}
+.mockup-body {
+  padding: 12px 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+/* Mockup 1 — Questionnaire */
+.m1-progress-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.m1-progress-label {
+  font-size: .52rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.m1-progress-track {
+  height: 4px;
+  border-radius: 99px;
+  background: rgba(114,47,55,0.12);
+  overflow: hidden;
+}
+.m1-progress-fill {
+  width: 40%;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 99px;
+}
+.m1-question {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .84rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.35;
+}
+.m1-options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.m1-option {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .6rem;
+  color: var(--muted);
+}
+.m1-radio {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(114,47,55,0.3);
+  flex-shrink: 0;
+}
+.m1-radio.selected {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 0 2px rgba(114,47,55,0.15);
+}
+.m1-option.selected { color: var(--accent); font-weight: 500; }
+.m1-continue {
+  margin-top: auto;
+  background: var(--accent);
+  color: #FAF0F1;
+  border-radius: 6px;
+  padding: 6px 0;
+  text-align: center;
+  font-size: .58rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Mockup 2 — Brief output */
+.m2-card {
+  border-left: 3px solid var(--accent);
+}
+.m2-header {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: .94rem;
+  font-weight: 400;
+  color: var(--text);
+}
+.m2-glance-label {
+  font-size: .5rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.m2-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.m2-bullet {
+  display: flex;
+  gap: 6px;
+  font-size: .58rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.m2-bullet-arrow {
+  color: var(--accent);
+  flex-shrink: 0;
+  font-size: .6rem;
+}
+.m2-caregiver-box {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 7px;
+  padding: 8px 10px;
+  margin-top: auto;
+}
+.m2-caregiver-label {
+  font-size: .48rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+.m2-caregiver-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: .7rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* ── PAGE LAYOUT ── */
+.page-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 72px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  position: sticky;
+  top: 78px;
+}
+.sidebar-label {
+  font-size: .58rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sidebar-link {
+  display: block;
+  font-size: .72rem;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-left: 2px solid transparent;
+  border-radius: 0 4px 4px 0;
+  transition: color .2s, border-color .2s, background .2s;
+  line-height: 1.3;
+}
+.sidebar-link:hover {
+  color: var(--accent);
+  border-left-color: rgba(114,47,55,0.3);
+  background: var(--accent-bg);
+}
+.sidebar-link.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: rgba(114,47,55,0.05);
+  font-weight: 500;
+}
+
+/* ── MOBILE PILL NAV ── */
+.mobile-pill-nav {
+  display: none;
+  overflow-x: auto;
+  padding: 14px 20px;
+  gap: 8px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--card-bg);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.mobile-pill-nav::-webkit-scrollbar { display: none; }
+.mobile-pill-nav a {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  padding: 6px 14px;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 100px;
+  font-size: .6rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: background .2s, color .2s, border-color .2s;
+  white-space: nowrap;
+}
+.mobile-pill-nav a:hover,
+.mobile-pill-nav a.active {
+  background: var(--accent);
+  color: #FAF0F1;
+  border-color: var(--accent);
+}
+
+/* ── CONTENT ── */
+.content { max-width: 780px; }
+
+.content-section {
+  padding: 52px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.content-section:first-child { padding-top: 0; }
+.content-section:last-child { border-bottom: none; }
+
+.section-label {
+  font-size: .58rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--accent);
+  opacity: .4;
+}
+
+.section-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 24px;
+  letter-spacing: -.01em;
+}
+
+.section-body p {
+  font-size: .92rem;
+  line-height: 1.85;
+  color: #3d2020;
+  margin-bottom: 16px;
+}
+.section-body p:last-child { margin-bottom: 0; }
+
+/* Key Decisions */
+.decision {
+  margin-bottom: 32px;
+}
+.decision:last-child { margin-bottom: 0; }
+.decision-title {
+  font-size: .88rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 10px;
+  padding-left: 14px;
+  border-left: 2px solid var(--accent);
+}
+.decision-body {
+  font-size: .88rem;
+  line-height: 1.85;
+  color: #3d2020;
+  padding-left: 14px;
+}
+
+/* Philosophy list */
+.philosophy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 8px;
+}
+.philosophy-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.philosophy-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--accent);
+  line-height: 1;
+  flex-shrink: 0;
+  padding-top: 2px;
+  min-width: 18px;
+}
+.philosophy-text {
+  font-size: .9rem;
+  line-height: 1.8;
+  color: #3d2020;
+}
+
+/* Bullet list */
+.content-bullets {
+  list-style: none;
+  margin: 16px 0;
+}
+.content-bullets li {
+  display: flex;
+  gap: 10px;
+  font-size: .9rem;
+  color: #3d2020;
+  line-height: 1.75;
+  padding: 6px 0;
+}
+.content-bullets li::before {
+  content: '→';
+  color: var(--accent);
+  flex-shrink: 0;
+  font-size: .8rem;
+  margin-top: 3px;
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 24px 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card-bg);
+}
+.footer-left {
+  font-size: .66rem;
+  color: var(--muted);
+  letter-spacing: .04em;
+}
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.footer-right a {
+  font-size: .66rem;
+  letter-spacing: .08em;
+  text-decoration: none;
+  color: var(--muted);
+  transition: color .2s;
+}
+.footer-right a:hover { color: var(--accent); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .site-header { padding: 0 20px; }
+  .hero { padding: 40px 20px 36px; }
+  .preview-strip-inner { padding: 0 20px; }
+  .mobile-pill-nav { display: flex; }
+  .page-layout {
+    grid-template-columns: 1fr;
+    padding: 36px 20px;
+    gap: 0;
+  }
+  .sidebar { display: none; }
+  .site-footer { padding: 20px; flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" class="header-logo">Karishma</a>
+  <nav class="header-nav">
+    <a href="index.html#projects">← Portfolio</a>
+    <a href="https://hearth.today" target="_blank" rel="noopener" class="visit-link">Visit Hearth →</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label-row">
+      <div class="hero-rule"></div>
+      <span class="hero-label-text">Case Study</span>
+    </div>
+    <h1 class="hero-name">Hearth</h1>
+    <p class="hero-descriptor">Caregiver briefing tool</p>
+    <div class="hero-status">
+      <span class="status-dot"></span>
+      LIVE
+    </div>
+    <br>
+    <a href="https://hearth.today" target="_blank" rel="noopener" class="hero-cta">Open Hearth →</a>
+  </div>
+</section>
+
+<!-- MOBILE PILL NAV -->
+<nav class="mobile-pill-nav" id="mobilePillNav">
+  <a href="#problem">The Problem</a>
+  <a href="#insight">The Insight</a>
+  <a href="#decisions">Key Decisions</a>
+  <a href="#privacy">Privacy & Compliance</a>
+  <a href="#next">What's Next</a>
+  <a href="#philosophy">Philosophy</a>
+</nav>
+
+<!-- PREVIEW STRIP -->
+<div class="preview-strip">
+  <div class="preview-strip-inner">
+
+    <!-- Mockup 1: Questionnaire -->
+    <div class="mockup-card">
+      <div class="mockup-topbar">
+        <div class="mockup-topbar-dot"></div>
+        <div class="mockup-topbar-dot"></div>
+        <div class="mockup-topbar-dot"></div>
+        <span class="mockup-wordmark">Hearth</span>
+      </div>
+      <div class="mockup-body">
+        <div class="m1-progress-wrap">
+          <span class="m1-progress-label">Step 2 of 5</span>
+          <div class="m1-progress-track"><div class="m1-progress-fill"></div></div>
+        </div>
+        <p class="m1-question">What stage of care are you in?</p>
+        <div class="m1-options">
+          <div class="m1-option"><div class="m1-radio"></div>Active care</div>
+          <div class="m1-option selected"><div class="m1-radio selected"></div>Palliative care</div>
+          <div class="m1-option"><div class="m1-radio"></div>Hospice</div>
+          <div class="m1-option"><div class="m1-radio"></div>Bereavement</div>
+        </div>
+        <div class="m1-continue">Continue</div>
+      </div>
+    </div>
+
+    <!-- Mockup 2: Brief output -->
+    <div class="mockup-card m2-card">
+      <div class="mockup-topbar">
+        <div class="mockup-topbar-dot"></div>
+        <div class="mockup-topbar-dot"></div>
+        <div class="mockup-topbar-dot"></div>
+        <span class="mockup-wordmark">Hearth</span>
+      </div>
+      <div class="mockup-body">
+        <p class="m2-header">Your Caregiver Brief</p>
+        <span class="m2-glance-label">At a glance</span>
+        <div class="m2-bullets">
+          <div class="m2-bullet"><span class="m2-bullet-arrow">→</span>Palliative care: comfort-focused support</div>
+          <div class="m2-bullet"><span class="m2-bullet-arrow">→</span>Speak with care team about pain management</div>
+          <div class="m2-bullet"><span class="m2-bullet-arrow">→</span>Review medication list this week</div>
+        </div>
+        <div class="m2-caregiver-box">
+          <p class="m2-caregiver-label">For the caregiver</p>
+          <p class="m2-caregiver-text">"What you're feeling is valid. This is hard."</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <p class="sidebar-label">On this page</p>
+    <nav class="sidebar-nav">
+      <a href="#problem" class="sidebar-link">The Problem</a>
+      <a href="#insight" class="sidebar-link">The Insight</a>
+      <a href="#decisions" class="sidebar-link">Key Decisions</a>
+      <a href="#privacy" class="sidebar-link">Privacy &amp; Compliance</a>
+      <a href="#next" class="sidebar-link">What's Next</a>
+      <a href="#philosophy" class="sidebar-link">Philosophy</a>
+    </nav>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- THE PROBLEM -->
+    <section class="content-section" id="problem">
+      <span class="section-label">The Problem</span>
+      <h2 class="section-heading">Nobody does this on day one.</h2>
+      <div class="section-body">
+        <p>Most people become caregivers before they feel ready. A diagnosis, a fall, a phone call — and suddenly you are responsible for someone else's health with no roadmap. When my grandmother moved into palliative care and we took care of her at home, I saw that firsthand. The medical side was a learning curve. The emotional side was its own thing entirely. Juggling both, while also understanding that we were actively losing her, was one of the hardest things my family has been through.</p>
+        <p>The tools that existed assumed you had already figured out the basics. We hadn't. Nobody does on day one.</p>
+      </div>
+    </section>
+
+    <!-- THE INSIGHT -->
+    <section class="content-section" id="insight">
+      <span class="section-label">The Insight</span>
+      <h2 class="section-heading">Meet people where they actually are.</h2>
+      <div class="section-body">
+        <p>Every other tool in this space is built for ongoing caregiving coordination. They assume you have already gotten organized. Hearth assumes you haven't, and meets you exactly there. You answer a few questions and walk away with something useful. No account required.</p>
+      </div>
+    </section>
+
+    <!-- KEY DECISIONS -->
+    <section class="content-section" id="decisions">
+      <span class="section-label">Key Decisions</span>
+      <h2 class="section-heading">Five decisions that shaped the product.</h2>
+
+      <div class="decision">
+        <p class="decision-title">Stateless by design</p>
+        <p class="decision-body">The decision to store nothing was the first and most important one. Not a technical constraint but a deliberate product choice. Someone using Hearth is often in crisis. They are not ready to trust a platform with their family's health information, and asking them to was the wrong ask entirely. Removing it removed the barrier between them and something useful.</p>
+      </div>
+
+      <div class="decision">
+        <p class="decision-title">Four care stages, one tool</p>
+        <p class="decision-body">Active care, palliative care, hospice, and bereavement are meaningfully different emotional and practical contexts. The questionnaire, output, timeline, and emotional acknowledgment all adapt based on which stage the user selects. This required significant system prompt engineering to handle those differences without building four separate products.</p>
+      </div>
+
+      <div class="decision">
+        <p class="decision-title">Short path, optional depth</p>
+        <p class="decision-body">Every question has a required core and optional expansion. The shortest path produces a useful brief. More detail produces a richer one. Nothing is ever forced. Caregivers in crisis have limited cognitive bandwidth and the product had to respect that before anything else.</p>
+      </div>
+
+      <div class="decision">
+        <p class="decision-title">Accessibility as the core constraint</p>
+        <p class="decision-body">The target user is often older, stressed, on a phone, and not particularly tech comfortable. Every design decision was made against that reality: minimum 18px body text and 48px touch targets throughout, no time limits on any input, WCAG 2.2 AA compliance, visible labels on every field, one primary action per screen, and printable output built into the spec from day one.</p>
+      </div>
+
+      <div class="decision">
+        <p class="decision-title">The emotional support page is a first-class output</p>
+        <p class="decision-body">The "For the caregiver" section is not an afterthought. It is grounded in published research on anticipatory grief and caregiver burnout. The system prompt was built from two weeks of reading primary research. The page includes explicit language that it is not a clinical assessment, because that distinction matters to the person reading it.</p>
+      </div>
+    </section>
+
+    <!-- PRIVACY & COMPLIANCE -->
+    <section class="content-section" id="privacy">
+      <span class="section-label">Privacy &amp; Compliance</span>
+      <h2 class="section-heading">Three frameworks, evaluated before a line of code was written.</h2>
+      <div class="section-body">
+        <p>HIPAA applicability was assessed and documented. Users are guided not to enter anything personally identifying because the tool was designed so it would never need it. That was an architecture decision, not just a policy one.</p>
+        <p>The FTC Health Breach Notification Rule applies to vendors of personal health records. Because Hearth stores nothing, there is nothing to breach and no obligation applies. That outcome was planned, not accidental.</p>
+        <p>The FDA's published guidance on software that helps patients and caregivers organize health information was reviewed. Hearth falls clearly within enforcement discretion. The AI formats and organizes — it never interprets, diagnoses, or makes clinical recommendations. Three distinct disclosure surfaces appear on every output page to make that clear to the user.</p>
+        <p>On the technical side: The Anthropic API key lives exclusively in a Vercel environment variable, never exposed to the client. All Claude API calls route through a serverless function acting as a stateless proxy. User responses are never logged anywhere — a deliberate decision, not an oversight.</p>
+      </div>
+    </section>
+
+    <!-- WHAT'S NEXT -->
+    <section class="content-section" id="next">
+      <span class="section-label">What's Next</span>
+      <h2 class="section-heading">When caregiving changes, the brief should too.</h2>
+      <div class="section-body">
+        <p>A lightweight follow-up brief for when the care stage changes. Right now Hearth is a one-time tool. The natural next version recognizes that caregiving is not static and offers a check-in that asks what has changed, without storing anything from the previous session.</p>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="content-section" id="philosophy">
+      <span class="section-label">Philosophy</span>
+      <h2 class="section-heading">Three things that shaped every decision.</h2>
+      <div class="philosophy-list">
+        <div class="philosophy-item">
+          <span class="philosophy-num">1</span>
+          <p class="philosophy-text">Start with who is being left out. The person who became a caregiver yesterday is not served by any existing tool. That is the person Hearth is for.</p>
+        </div>
+        <div class="philosophy-item">
+          <span class="philosophy-num">2</span>
+          <p class="philosophy-text">The right metric here is not retention. It is whether the person who used it felt less overwhelmed walking away than they did walking in.</p>
+        </div>
+        <div class="philosophy-item">
+          <span class="philosophy-num">3</span>
+          <p class="philosophy-text">Compliance is a design input, not a legal checkbox. Every privacy decision was made before the first line of code. That is the only way it works.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <span class="footer-left">Built by Karishma Amin</span>
+  <div class="footer-right">
+    <a href="https://www.linkedin.com/in/karishma-amin/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="index.html#projects">← Portfolio</a>
+  </div>
+</footer>
+
+<script>
+// IntersectionObserver for active sidebar/pill nav links
+const sections = document.querySelectorAll('.content-section[id]');
+const sidebarLinks = document.querySelectorAll('.sidebar-link');
+const pillLinks = document.querySelectorAll('.mobile-pill-nav a');
+
+function setActive(id) {
+  sidebarLinks.forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+  });
+  pillLinks.forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+  });
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) setActive(entry.target.id);
+  });
+}, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

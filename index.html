@@ -287,56 +287,6 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .exp-header h2 { font-family:'DM Serif Display',serif; font-size:clamp(2.2rem,3.8vw,3.4rem); font-weight:400; line-height:1.1; color:#F0EFEB; }
 .exp-header h2 em { font-style:italic; color:var(--sage); }
 .exp-years { display:none; }
-.exp-bio { font-size:.88rem; color:rgba(255,255,255,.45); line-height:1.8; max-width:560px; margin-bottom:32px; }
-.exp-bio strong { color:rgba(255,255,255,.75); font-weight:400; }
-
-/* 2×2 principles grid */
-.principles-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 32px;
-}
-.principle-card {
-  background: var(--bg);
-  border: 1px solid var(--rule);
-  border-radius: 12px;
-  padding: 22px 24px;
-  transition: transform .3s cubic-bezier(.23,1,.32,1), background .3s, border-color .3s, box-shadow .3s;
-  cursor: default;
-  position: relative;
-  z-index: 1;
-}
-.principle-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  background: var(--sage-bg);
-  border-color: var(--sage);
-  box-shadow: 0 20px 48px rgba(90,138,98,.2), 0 0 0 1px var(--sage);
-  z-index: 2;
-}
-.principle-card:hover .principle-num { color: var(--sage-deep); }
-.principle-card:hover .principle-title { color: var(--sage-deep); font-weight: 500; }
-.principle-card:hover .principle-sub { color: var(--sage-deep); opacity: .75; }
-.principle-num {
-  font-family: 'DM Serif Display', serif;
-  font-style: italic;
-  font-size: .75rem;
-  color: var(--sage-deep);
-  margin-bottom: 8px;
-  display: block;
-}
-.principle-title {
-  font-size: .88rem;
-  font-weight: 400;
-  color: var(--black);
-  margin-bottom: 4px;
-  line-height: 1.3;
-}
-.principle-sub {
-  font-size: .74rem;
-  color: var(--soft);
-  line-height: 1.55;
-}
 
 .exp-company { border-radius:16px; overflow:hidden; background: #F9F7F4; border: 1px solid rgba(255,255,255,.06); }
 .exp-co-date { font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); margin-bottom:10px; display:block; }
@@ -378,8 +328,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .projects-header { margin-bottom:24px; }
 .projects-header h2 { font-family:'DM Serif Display',serif; font-size:clamp(2.2rem,3.8vw,3.4rem); font-weight:400; line-height:1.1; color:var(--black); }
 .projects-header h2 em { font-style:italic; color:var(--sage); }
-.projects-grid { position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; }
-@media(max-width:1100px){ .projects-grid { grid-template-columns:1fr 1fr; } }
+.projects-grid { position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; align-items:stretch; }
 .proj-card { background:var(--white); border:1px solid var(--rule); border-radius:16px; padding:36px 36px 28px; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:all .3s; position:relative; overflow:hidden; }
 .proj-card:hover { border-color:var(--sage); transform:translateY(-4px); box-shadow:0 12px 36px rgba(0,0,0,.07); }
 .proj-status { display:inline-flex; align-items:center; gap:7px; font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:var(--soft); margin-bottom:20px; }
@@ -418,6 +367,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   display: flex;
   flex-direction: column;
   gap: 10px;
+  min-height: 148px;
 }
 .love-preview-header {
   display: flex; align-items: center; justify-content: space-between;
@@ -506,16 +456,23 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   background: #F0EBE3;
   border: 1px solid rgba(114,47,55,0.14);
   border-radius: 12px;
-  padding: 14px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  min-height: 148px;
+}
+.hearth-preview-top {
+  padding: 14px 14px 10px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 7px;
+  gap: 5px;
   text-align: center;
+  flex: 1;
 }
 .hearth-preview-icon {
-  width: 34px; height: 34px; border-radius: 9px;
+  width: 32px; height: 32px; border-radius: 8px;
   background: #722F37;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
@@ -524,44 +481,51 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: #722F37;
   line-height: 1;
 }
-.hearth-preview-pill {
-  display: inline-flex; align-items: center; gap: 5px;
-  background: rgba(114,47,55,0.07);
-  border: 1px solid rgba(114,47,55,0.14);
-  border-radius: 100px;
-  padding: 2px 10px;
-  font-size: .52rem;
-  letter-spacing: .06em;
-  color: #9a6b6e;
-  font-family: 'Geist', sans-serif;
-}
 .hearth-preview-brief {
-  width: 100%;
-  background: rgba(255,255,255,0.6);
+  margin: 0 10px 10px;
+  background: rgba(255,255,255,0.65);
   border: 1px solid rgba(114,47,55,0.18);
-  border-radius: 9px;
-  padding: 9px 11px;
+  border-left: 3px solid #722F37;
+  border-radius: 7px;
+  padding: 8px 10px;
   text-align: left;
-  margin-top: 3px;
 }
 .hearth-preview-brief-label {
-  font-size: .5rem;
-  letter-spacing: .1em;
+  font-size: .48rem;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: #722F37;
   font-family: 'Geist', sans-serif;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 .hearth-preview-brief-line {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: .8rem;
+  font-size: .76rem;
   color: #5a3a3a;
-  line-height: 1.45;
+  line-height: 1.4;
+}
+.hearth-preview-pills {
+  background: #E8E0D4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 10px;
+}
+.hearth-preview-pill-item {
+  font-size: .5rem;
+  letter-spacing: .06em;
+  color: #8a6a6a;
+  font-family: 'Geist', sans-serif;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid rgba(114,47,55,0.14);
+  border-radius: 100px;
+  padding: 2px 8px;
 }
 .proj-velum-header {
   display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
@@ -585,6 +549,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   padding: 12px 14px;
   margin-bottom: 20px;
   backdrop-filter: blur(8px);
+  min-height: 148px;
 }
 .velum-mini-cal-row {
   display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-bottom: 6px;
@@ -696,7 +661,8 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
 @media(max-width:900px){
   .hero-inner { padding: 0 28px; }
   nav,.experience,.projects,.about,.skills,.contact { padding-left:28px; padding-right:28px; }
-  .about-grid,.projects-grid { grid-template-columns:1fr; gap:20px; }
+  .about-grid { grid-template-columns:1fr; gap:20px; }
+  .projects-grid { grid-template-columns:1fr; gap:20px; }
   .skills-layout { grid-template-columns:1fr; }
   footer { padding:20px 28px; flex-direction:column; gap:6px; }
   .hero-ghost-word { display:none; }
@@ -793,31 +759,6 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
     </div>
   </div>
 
-  <p class="exp-bio reveal">I believe the best products come from <strong>genuinely caring</strong> about the person on the other end — being curious, listening carefully, and always asking who might be left out.</p>
-
-  <div class="principles-grid reveal">
-    <div class="principle-card">
-      <span class="principle-num">01</span>
-      <p class="principle-title">Start with who's being left out</p>
-      <p class="principle-sub">The underserved use case reveals the real product.</p>
-    </div>
-    <div class="principle-card">
-      <span class="principle-num">02</span>
-      <p class="principle-title">The anecdote is the metric</p>
-      <p class="principle-sub">Real stories beat dashboards every time.</p>
-    </div>
-    <div class="principle-card">
-      <span class="principle-num">03</span>
-      <p class="principle-title">Connection is the product</p>
-      <p class="principle-sub">Whether it's people to people, or people to resources.</p>
-    </div>
-    <div class="principle-card">
-      <span class="principle-num">04</span>
-      <p class="principle-title">Keep building</p>
-      <p class="principle-sub">There's always another gap worth closing.</p>
-    </div>
-  </div>
-
   <div class="exp-company reveal" id="heliumAccordion">
     <div class="exp-summary" onclick="toggleExp()">
       <div class="exp-summary-left">
@@ -907,14 +848,21 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
     </a>
     <a href="hearth.html" class="proj-card proj-card-hearth reveal d1">
       <div class="hearth-preview">
-        <div class="hearth-preview-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF0F1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <div class="hearth-preview-top">
+          <div class="hearth-preview-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FAF0F1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <p class="hearth-preview-wordmark">Hearth</p>
         </div>
-        <p class="hearth-preview-wordmark">Hearth</p>
-        <span class="hearth-preview-pill">No account · Free · 10 minutes</span>
         <div class="hearth-preview-brief">
           <p class="hearth-preview-brief-label">At a glance</p>
-          <p class="hearth-preview-brief-line">Your caregiver briefing is ready.</p>
+          <p class="hearth-preview-brief-line">Palliative care: comfort-focused support</p>
+          <p class="hearth-preview-brief-line">Speak with care team this week</p>
+        </div>
+        <div class="hearth-preview-pills">
+          <span class="hearth-preview-pill-item">No account</span>
+          <span class="hearth-preview-pill-item">Free</span>
+          <span class="hearth-preview-pill-item">10 min</span>
         </div>
       </div>
       <div class="proj-status"><div class="proj-dot"></div>Live</div>

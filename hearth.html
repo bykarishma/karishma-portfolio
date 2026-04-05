@@ -78,14 +78,27 @@ body {
 .hero {
   background: var(--card-bg);
   border-bottom: 1px solid var(--rule);
-  padding: 72px 72px 60px;
+  padding: 36px 72px 32px;
+  min-height: 0;
+  max-height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.hero-inner { max-width: 760px; }
+.hero-inner {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .hero-label-row {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 .hero-label-text {
   font-size: .6rem;
@@ -97,17 +110,17 @@ body {
 .hero-name {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: clamp(3.2rem, 7vw, 6rem);
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
   font-weight: 400;
   color: var(--accent);
   line-height: .95;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   letter-spacing: -.01em;
 }
 .hero-descriptor {
-  font-size: 1.05rem;
+  font-size: .95rem;
   color: var(--muted);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   font-weight: 300;
 }
 .hero-status {
@@ -122,7 +135,7 @@ body {
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 .status-dot {
   width: 6px;
@@ -135,7 +148,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 13px 28px;
+  padding: 11px 26px;
   background: var(--accent);
   color: #FAF0F1;
   text-decoration: none;
@@ -381,12 +394,15 @@ body {
 .mobile-pill-nav {
   display: none;
   overflow-x: auto;
-  padding: 14px 20px;
+  padding: 12px 20px;
   gap: 8px;
   border-bottom: 1px solid var(--rule);
   background: var(--card-bg);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  position: sticky;
+  top: 58px;
+  z-index: 100;
 }
 .mobile-pill-nav::-webkit-scrollbar { display: none; }
 .mobile-pill-nav a {
@@ -558,7 +574,7 @@ body {
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .site-header { padding: 0 20px; }
-  .hero { padding: 40px 20px 36px; }
+  .hero { padding: 28px 20px 24px; max-height: none; }
   .preview-strip-inner { padding: 0 20px; }
   .mobile-pill-nav { display: flex; }
   .page-layout {
@@ -575,9 +591,9 @@ body {
 
 <!-- HEADER -->
 <header class="site-header">
-  <a href="index.html" class="header-logo">Karishma</a>
+  <a href="https://bykarishma.github.io/karishma-portfolio/#projects" class="header-logo">Karishma</a>
   <nav class="header-nav">
-    <a href="index.html#projects">← Portfolio</a>
+    <a href="https://bykarishma.github.io/karishma-portfolio/#projects">← Back to Portfolio</a>
     <a href="https://hearth.today" target="_blank" rel="noopener" class="visit-link">Visit Hearth →</a>
   </nav>
 </header>
@@ -782,7 +798,7 @@ body {
   <span class="footer-left">Built by Karishma Amin</span>
   <div class="footer-right">
     <a href="https://www.linkedin.com/in/karishma-amin/" target="_blank" rel="noopener">LinkedIn ↗</a>
-    <a href="index.html#projects">← Portfolio</a>
+    <a href="https://bykarishma.github.io/karishma-portfolio/#projects">← Portfolio</a>
   </div>
 </footer>
 

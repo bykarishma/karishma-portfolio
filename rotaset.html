@@ -9,17 +9,17 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --accent:   #4a7c59;
-  --accent-lt:#6a9e79;
-  --accent-bg:rgba(74,124,89,0.1);
-  --accent-border:rgba(74,124,89,0.2);
-  --bg:       #0F1117;
-  --card-bg:  #161B22;
-  --surface:  #1C2230;
-  --text:     #E8EAF0;
-  --muted:    #8B9299;
-  --rule:     rgba(74,124,89,0.2);
-  --rule-hard:rgba(255,255,255,0.07);
+  --accent:        #5a8a62;
+  --accent-lt:     #7aaa82;
+  --accent-bg:     rgba(90,138,98,0.08);
+  --accent-border: rgba(90,138,98,0.22);
+  --bg:            #FAFAF8;
+  --card-bg:       #FFFFFF;
+  --surface:       #F2F0EC;
+  --text:          #1A1A18;
+  --muted:         #6B6B67;
+  --rule:          rgba(90,138,98,0.18);
+  --rule-hard:     rgba(0,0,0,0.08);
 }
 
 html { scroll-behavior: smooth; }
@@ -37,7 +37,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 200;
-  background: rgba(15,17,23,0.92);
+  background: rgba(250,250,248,0.94);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--rule-hard);
   padding: 0 72px;
@@ -77,16 +77,29 @@ body {
 
 /* ── HERO ── */
 .hero {
-  background: var(--card-bg);
+  background: var(--bg);
   border-bottom: 1px solid var(--rule-hard);
-  padding: 72px 72px 60px;
+  padding: 36px 72px 32px;
+  min-height: 0;
+  max-height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.hero-inner { max-width: 760px; }
+.hero-inner {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .hero-label-row {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 .hero-label-text {
   font-size: .6rem;
@@ -97,24 +110,24 @@ body {
 .hero-rule { width: 24px; height: 1px; background: var(--rule); }
 .hero-name {
   font-family: 'DM Serif Display', serif;
-  font-size: clamp(3.2rem, 7vw, 6rem);
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
   font-weight: 400;
   color: var(--text);
   line-height: .95;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   letter-spacing: -.02em;
 }
 .hero-descriptor {
-  font-size: 1.05rem;
+  font-size: .95rem;
   color: var(--muted);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   font-weight: 300;
 }
 .hero-status {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(74,124,89,0.1);
+  background: var(--accent-bg);
   border: 1px solid var(--accent-border);
   border-radius: 100px;
   padding: 5px 14px;
@@ -122,7 +135,7 @@ body {
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 .status-dot {
   width: 6px;
@@ -133,14 +146,14 @@ body {
   animation: pulse 2.4s ease-in-out infinite;
 }
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(74,124,89,0.5); }
-  50%       { box-shadow: 0 0 0 5px rgba(74,124,89,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(90,138,98,0.5); }
+  50%       { box-shadow: 0 0 0 5px rgba(90,138,98,0); }
 }
 .hero-cta {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 13px 28px;
+  padding: 11px 26px;
   background: var(--accent);
   color: #fff;
   text-decoration: none;
@@ -194,7 +207,7 @@ body {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.14);
 }
 .mockup-title-text {
   font-size: .7rem;
@@ -249,22 +262,22 @@ body {
   font-weight: 400;
 }
 .cal-block.sage {
-  background: rgba(74,124,89,0.25);
-  color: #7ac99a;
+  background: rgba(90,138,98,0.18);
+  color: #2e5238;
   border-left: 2px solid var(--accent);
 }
 .cal-block.sage-lt {
-  background: rgba(74,124,89,0.12);
-  color: #6aaa80;
-  border-left: 2px solid rgba(74,124,89,0.4);
+  background: rgba(90,138,98,0.10);
+  color: #3d6b4a;
+  border-left: 2px solid rgba(90,138,98,0.4);
 }
 .cal-block.accent {
-  background: rgba(74,124,89,0.35);
-  color: #9adba8;
-  border-left: 2px solid #5a9e6e;
+  background: rgba(90,138,98,0.28);
+  color: #1f4028;
+  border-left: 2px solid #5a8a62;
 }
 .cal-block.muted {
-  background: rgba(255,255,255,0.04);
+  background: rgba(0,0,0,0.04);
   color: var(--muted);
   border-left: 2px solid transparent;
 }
@@ -372,12 +385,15 @@ body {
 .mobile-pill-nav {
   display: none;
   overflow-x: auto;
-  padding: 14px 20px;
+  padding: 12px 20px;
   gap: 8px;
   border-bottom: 1px solid var(--rule-hard);
-  background: var(--card-bg);
+  background: var(--bg);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  position: sticky;
+  top: 58px;
+  z-index: 100;
 }
 .mobile-pill-nav::-webkit-scrollbar { display: none; }
 .mobile-pill-nav a {
@@ -444,7 +460,7 @@ body {
 .section-body p {
   font-size: .92rem;
   line-height: 1.85;
-  color: rgba(232,234,240,0.75);
+  color: #3a3a38;
   margin-bottom: 16px;
 }
 .section-body p:last-child { margin-bottom: 0; }
@@ -465,7 +481,7 @@ body {
 .decision-body {
   font-size: .88rem;
   line-height: 1.85;
-  color: rgba(232,234,240,0.75);
+  color: #3a3a38;
   padding-left: 14px;
 }
 
@@ -494,7 +510,7 @@ body {
 .philosophy-text {
   font-size: .9rem;
   line-height: 1.8;
-  color: rgba(232,234,240,0.75);
+  color: #3a3a38;
 }
 
 /* ── FOOTER ── */
@@ -528,7 +544,7 @@ body {
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .site-header { padding: 0 20px; }
-  .hero { padding: 40px 20px 36px; }
+  .hero { padding: 28px 20px 24px; max-height: none; }
   .preview-strip-inner { padding: 0 20px; }
   .mobile-pill-nav { display: flex; }
   .page-layout {
@@ -545,9 +561,9 @@ body {
 
 <!-- HEADER -->
 <header class="site-header">
-  <a href="index.html" class="header-logo">Karishma</a>
+  <a href="https://bykarishma.github.io/karishma-portfolio/#projects" class="header-logo">Karishma</a>
   <nav class="header-nav">
-    <a href="index.html#projects">← Portfolio</a>
+    <a href="https://bykarishma.github.io/karishma-portfolio/#projects">← Back to Portfolio</a>
     <a href="https://rotaset.org" target="_blank" rel="noopener" class="visit-link">Visit Rotaset →</a>
   </nav>
 </header>
@@ -795,7 +811,7 @@ body {
   <span class="footer-left">Built by Karishma Amin</span>
   <div class="footer-right">
     <a href="https://www.linkedin.com/in/karishma-amin/" target="_blank" rel="noopener">LinkedIn ↗</a>
-    <a href="index.html#projects">← Portfolio</a>
+    <a href="https://bykarishma.github.io/karishma-portfolio/#projects">← Portfolio</a>
   </div>
 </footer>
 

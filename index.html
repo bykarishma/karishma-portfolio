@@ -455,9 +455,10 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .proj-card-hearth .proj-tag { border-color: rgba(114,47,55,0.18); color: #9a6b6e; background: rgba(114,47,55,0.05); }
 .proj-card-hearth .proj-cta-btn { background: #722F37; color: #FAF0F1; }
 .proj-card-hearth:hover .proj-cta-btn { background: #5c2028; }
-/* Hearth preview — solid brand color */
+/* Hearth preview — warm linen */
 .hearth-preview-solid {
-  background: #722F37;
+  background: #F0EBE3;
+  border: 1px solid rgba(114,47,55,0.14);
   border-radius: 12px;
   margin-bottom: 20px;
   min-height: 148px;
@@ -465,14 +466,15 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  gap: 5px;
+  flex: 1;
 }
 .hearth-preview-solid-name {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-weight: 400;
   font-size: 2.1rem;
-  color: #fff;
+  color: #722F37;
   line-height: 1;
   letter-spacing: -.01em;
 }
@@ -480,7 +482,23 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   font-size: .56rem;
   letter-spacing: .13em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
+  color: #9a6b6e;
+}
+.hearth-preview-solid-pills {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #E8E0D4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 6px 10px;
+  font-size: .5rem;
+  letter-spacing: .06em;
+  color: #8a6a6a;
+  border-radius: 0 0 11px 11px;
 }
 .proj-velum-header {
   display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
@@ -802,9 +820,10 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
       <a href="https://rotaset.org" target="_blank" rel="noopener" class="proj-visit-link" onclick="event.stopPropagation()">Visit live app ↗</a>
     </div>
     <div onclick="window.location='hearth.html'" class="proj-card proj-card-hearth reveal d1">
-      <div class="hearth-preview-solid">
+      <div class="hearth-preview-solid" style="position:relative">
         <p class="hearth-preview-solid-name">Hearth</p>
         <p class="hearth-preview-solid-tagline">Caregiver briefing tool</p>
+        <div class="hearth-preview-solid-pills">No account &nbsp;·&nbsp; Free &nbsp;·&nbsp; 10 min</div>
       </div>
       <div class="proj-status"><div class="proj-dot"></div>Live</div>
       <p class="proj-title">Hearth</p>

@@ -329,7 +329,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .projects-header h2 { font-family:'DM Serif Display',serif; font-size:clamp(2.2rem,3.8vw,3.4rem); font-weight:400; line-height:1.1; color:var(--black); }
 .projects-header h2 em { font-style:italic; color:var(--sage); }
 .projects-grid { position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; align-items:stretch; }
-.proj-card { background:var(--white); border:1px solid var(--rule); border-radius:16px; padding:36px 36px 28px; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:all .3s; position:relative; overflow:hidden; cursor:pointer; }
+.proj-card { background:var(--white); border:1px solid var(--rule); border-radius:16px; padding:36px 36px 28px; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:all .3s; position:relative; overflow:hidden; cursor:pointer; height:100%; box-sizing:border-box; }
 .proj-card:hover { border-color:var(--sage); transform:translateY(-4px); box-shadow:0 12px 36px rgba(0,0,0,.07); }
 .proj-status { display:inline-flex; align-items:center; gap:7px; font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:var(--soft); margin-bottom:20px; }
 .proj-dot { width:5px; height:5px; border-radius:50%; background:var(--sage); animation:hb 2.4s ease-in-out infinite; }
@@ -464,41 +464,66 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   min-height: 148px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+.hearth-preview-solid-top {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  flex: 1;
+  padding: 12px 14px 10px;
+  gap: 4px;
 }
 .hearth-preview-solid-name {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 2.1rem;
+  font-size: 1.55rem;
   color: #722F37;
   line-height: 1;
   letter-spacing: -.01em;
 }
 .hearth-preview-solid-tagline {
-  font-size: .56rem;
-  letter-spacing: .13em;
+  font-size: .5rem;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: #9a6b6e;
+  margin-bottom: 8px;
 }
+.hearth-preview-mini-card {
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(114,47,55,0.14);
+  border-left: 3px solid #722F37;
+  border-radius: 6px;
+  padding: 6px 9px;
+  width: 100%;
+  max-width: 168px;
+}
+.hearth-preview-mini-label {
+  font-size: .42rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #722F37;
+  margin-bottom: 5px;
+}
+.hearth-preview-mini-line {
+  height: 4px;
+  border-radius: 99px;
+  background: rgba(114,47,55,0.14);
+  margin-bottom: 4px;
+}
+.hearth-preview-mini-line:last-child { margin-bottom: 0; width: 62%; }
 .hearth-preview-solid-pills {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #E8E0D4;
+  background: #E4DDD5;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
   padding: 6px 10px;
   font-size: .5rem;
   letter-spacing: .06em;
   color: #8a6a6a;
-  border-radius: 0 0 11px 11px;
+  flex-shrink: 0;
 }
 .proj-velum-header {
   display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
@@ -812,7 +837,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
       </div>
       <div class="proj-status"><div class="proj-dot"></div>Live · In Beta</div>
       <p class="proj-title">Rotaset</p>
-      <p class="proj-body">A smart study scheduler built for medical students. Rotaset removes the planning overhead entirely — personalized schedule generation, a calming UI, and a one-click reset when life gets in the way.</p>
+      <p class="proj-body">A smart study scheduler built for medical students. Rotaset removes the planning overhead entirely. Personalized schedule generation, a calming UI, and a one-click reset when life gets in the way.</p>
       <div class="proj-tags">
         <span class="proj-tag">Web App</span><span class="proj-tag">EdTech</span><span class="proj-tag">AI</span><span class="proj-tag">HealthTech</span>
       </div>
@@ -820,9 +845,16 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
       <a href="https://rotaset.org" target="_blank" rel="noopener" class="proj-visit-link" onclick="event.stopPropagation()">Visit live app ↗</a>
     </div>
     <div onclick="window.location='hearth.html'" class="proj-card proj-card-hearth reveal d1">
-      <div class="hearth-preview-solid" style="position:relative">
-        <p class="hearth-preview-solid-name">Hearth</p>
-        <p class="hearth-preview-solid-tagline">Caregiver briefing tool</p>
+      <div class="hearth-preview-solid">
+        <div class="hearth-preview-solid-top">
+          <p class="hearth-preview-solid-name">Hearth</p>
+          <p class="hearth-preview-solid-tagline">Caregiver briefing tool</p>
+          <div class="hearth-preview-mini-card">
+            <p class="hearth-preview-mini-label">At a glance</p>
+            <div class="hearth-preview-mini-line"></div>
+            <div class="hearth-preview-mini-line"></div>
+          </div>
+        </div>
         <div class="hearth-preview-solid-pills">No account &nbsp;·&nbsp; Free &nbsp;·&nbsp; 10 min</div>
       </div>
       <div class="proj-status"><div class="proj-dot"></div>Live</div>

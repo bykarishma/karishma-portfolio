@@ -79,7 +79,7 @@ body {
 .hero {
   background: var(--bg);
   border-bottom: 1px solid var(--rule-hard);
-  padding: 36px 72px 32px;
+  padding: 22px 72px 19px;
   min-height: 0;
   max-height: 35vh;
   display: flex;
@@ -99,7 +99,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 7px;
 }
 .hero-label-text {
   font-size: .6rem;
@@ -114,13 +114,13 @@ body {
   font-weight: 400;
   color: var(--text);
   line-height: .95;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   letter-spacing: -.02em;
 }
 .hero-descriptor {
   font-size: .95rem;
   color: var(--muted);
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   font-weight: 300;
 }
 .hero-status {
@@ -135,7 +135,7 @@ body {
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 .status-dot {
   width: 6px;
@@ -541,6 +541,63 @@ body {
 }
 .footer-right a:hover { color: var(--accent); }
 
+/* ── PREVIEW ANIMATIONS ── */
+@keyframes rota-fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes cal-pulse-ring {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(90,138,98,0.55); }
+  50%       { box-shadow: 0 0 0 6px rgba(90,138,98,0); }
+}
+@keyframes sched-slide {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Cards hidden until strip scrolls into view */
+.mockup-card { opacity: 0; }
+.preview-strip.in-view .mockup-card:nth-child(1) {
+  animation: rota-fade-up .5s ease .05s both;
+}
+.preview-strip.in-view .mockup-card:nth-child(2) {
+  animation: rota-fade-up .5s ease .22s both;
+}
+
+/* Calendar cell hover */
+.cal-block {
+  transition: background .18s, color .18s, border-left-color .18s;
+  cursor: default;
+}
+.cal-block:hover {
+  background: rgba(90,138,98,0.28) !important;
+  color: #1f4028 !important;
+  border-left-color: var(--accent) !important;
+}
+
+/* Today accent cell pulse on load */
+.cal-block.accent {
+  animation: cal-pulse-ring 2.4s ease-in-out 1.6s infinite;
+}
+
+/* Schedule items: hidden until in-view, then stagger in */
+.today-item {
+  opacity: 0;
+  border-radius: 4px;
+  transition: background .18s;
+}
+.preview-strip.in-view .today-item:nth-child(1) { animation: sched-slide .3s ease .2s both; }
+.preview-strip.in-view .today-item:nth-child(2) { animation: sched-slide .3s ease .35s both; }
+.preview-strip.in-view .today-item:nth-child(3) { animation: sched-slide .3s ease .5s both; }
+.preview-strip.in-view .today-item:nth-child(4) { animation: sched-slide .3s ease .65s both; }
+.preview-strip.in-view .today-item:nth-child(5) { animation: sched-slide .3s ease .8s both; }
+
+.today-item:hover { background: rgba(90,138,98,0.07); }
+.today-indicator { transition: background .2s; }
+.today-item:hover .today-indicator { background: var(--accent); }
+.today-desc { transition: color .2s; }
+.today-item:hover .today-desc:not(.break-item) { color: var(--accent); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .site-header { padding: 0 20px; }
@@ -573,7 +630,7 @@ body {
   <div class="hero-inner">
     <div class="hero-label-row">
       <div class="hero-rule"></div>
-      <span class="hero-label-text">Case Study</span>
+      <span class="hero-label-text">Product Thinking</span>
     </div>
     <h1 class="hero-name">Rotaset</h1>
     <p class="hero-descriptor">AI study planner for medical students</p>
@@ -815,6 +872,20 @@ body {
 </footer>
 
 <script>
+// Preview strip scroll-triggered entrance
+const previewStrip = document.querySelector('.preview-strip');
+if (previewStrip) {
+  const previewObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        previewObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  previewObs.observe(previewStrip);
+}
+
 // IntersectionObserver for active sidebar/pill nav links
 const sections = document.querySelectorAll('.content-section[id]');
 const sidebarLinks = document.querySelectorAll('.sidebar-link');

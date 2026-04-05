@@ -78,7 +78,7 @@ body {
 .hero {
   background: var(--card-bg);
   border-bottom: 1px solid var(--rule);
-  padding: 36px 72px 32px;
+  padding: 22px 72px 19px;
   min-height: 0;
   max-height: 35vh;
   display: flex;
@@ -98,7 +98,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 7px;
 }
 .hero-label-text {
   font-size: .6rem;
@@ -114,13 +114,13 @@ body {
   font-weight: 400;
   color: var(--accent);
   line-height: .95;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   letter-spacing: -.01em;
 }
 .hero-descriptor {
   font-size: .95rem;
   color: var(--muted);
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   font-weight: 300;
 }
 .hero-status {
@@ -135,7 +135,7 @@ body {
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 .status-dot {
   width: 6px;
@@ -571,6 +571,76 @@ body {
 }
 .footer-right a:hover { color: var(--accent); }
 
+/* ── PREVIEW ANIMATIONS ── */
+@keyframes h-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes h-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-3px); }
+}
+@keyframes h-progress {
+  from { width: 0; }
+  to   { width: 40%; }
+}
+@keyframes h-brief-slide {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Fade in then float — separate properties so they don't conflict */
+.preview-strip-inner .mockup-card:nth-child(1) {
+  opacity: 0;
+  animation:
+    h-fade-in .5s ease .1s forwards,
+    h-float 4s ease-in-out 1.2s infinite;
+}
+.preview-strip-inner .mockup-card:nth-child(2) {
+  opacity: 0;
+  animation:
+    h-fade-in .5s ease .3s forwards,
+    h-float 4s ease-in-out 2.4s infinite;
+}
+
+/* Progress bar fills on load */
+.m1-progress-fill {
+  animation: h-progress 1.5s ease .4s both;
+}
+
+/* Option hover highlight */
+.m1-option {
+  border-radius: 4px;
+  padding: 2px 5px;
+  margin: -2px -5px;
+  transition: background .15s, color .15s;
+  cursor: pointer;
+}
+.m1-option:hover {
+  background: rgba(114,47,55,0.08);
+  color: var(--accent);
+}
+.m1-radio { transition: border-color .15s, background .15s; }
+.m1-option:hover .m1-radio { border-color: var(--accent); }
+
+/* Brief bullets stagger in */
+.m2-bullet {
+  opacity: 0;
+  animation: h-brief-slide .35s ease both;
+}
+.m2-card .m2-bullets .m2-bullet:nth-child(1) { animation-delay: .25s; }
+.m2-card .m2-bullets .m2-bullet:nth-child(2) { animation-delay: .45s; }
+.m2-card .m2-bullets .m2-bullet:nth-child(3) { animation-delay: .65s; }
+
+/* Caregiver box warm glow on hover */
+.m2-caregiver-box {
+  transition: background .25s, box-shadow .25s;
+}
+.m2-caregiver-box:hover {
+  background: #F5EAEB;
+  box-shadow: 0 0 0 4px rgba(114,47,55,0.07);
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .site-header { padding: 0 20px; }
@@ -603,7 +673,7 @@ body {
   <div class="hero-inner">
     <div class="hero-label-row">
       <div class="hero-rule"></div>
-      <span class="hero-label-text">Case Study</span>
+      <span class="hero-label-text">Product Thinking</span>
     </div>
     <h1 class="hero-name">Hearth</h1>
     <p class="hero-descriptor">Caregiver briefing tool</p>

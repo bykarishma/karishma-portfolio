@@ -138,7 +138,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 /* Main heading — editorial but not huge */
 .hero-heading {
   font-family: 'DM Serif Display', serif;
-  font-size: clamp(2.7rem, 5.4vw, 5.4rem);
+  font-size: clamp(2.2rem, 4.4vw, 4.4rem);
   font-weight: 400;
   line-height: .92;
   letter-spacing: -.02em;
@@ -206,12 +206,12 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   display: flex; align-items: stretch; gap: 0;
   margin-bottom: 28px;
   opacity: 0; animation: fadeSlideIn .9s ease .6s forwards;
-  max-width: 360px;
+  max-width: 320px;
   border: 1px solid var(--rule); border-radius: 10px;
   overflow: hidden; background: var(--white);
 }
 .hero-stat-item {
-  flex: 1; padding: 14px 18px;
+  flex: 1; padding: 14px 28px;
   border-right: 1px solid var(--rule);
   display: flex; flex-direction: column; gap: 2px;
 }
@@ -590,8 +590,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .skills-header h2 { font-family:'DM Serif Display',serif; font-size:clamp(2.2rem,3.8vw,3.4rem); font-weight:400; color:#F0EFEB; line-height:1.05; }
 .skills-header h2 em { font-style:italic; color:var(--sage); }
 
-.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.skill-group-full { grid-column: 1 / -1; }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 
 .skill-group {
   background: var(--white);
@@ -612,7 +611,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .skill-group-title { font-size: .78rem; font-weight: 500; color: var(--black); }
 .skill-tags-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
 .skill-pill {
-  font-size: .62rem; padding: 4px 10px; border-radius: 100px;
+  font-size: .68rem; padding: 4px 10px; border-radius: 100px;
   border: 1px solid var(--rule); color: var(--dim); background: var(--bg);
   cursor: default; transition: background .2s, border-color .2s, color .2s;
 }
@@ -656,12 +655,35 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
 .d2 { transition-delay:.26s; }
 .d3 { transition-delay:.38s; }
 
+/* ── EXTRA ANIMATIONS ── */
+@keyframes pill-appear {
+  from { opacity: 0; transform: translateY(5px) scale(.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.skills-grid.in .skill-group:nth-child(1) .skill-pill { opacity:0; animation: pill-appear .28s ease both; }
+.skills-grid.in .skill-group:nth-child(2) .skill-pill { opacity:0; animation: pill-appear .28s ease both; animation-delay: .12s; }
+.skills-grid.in .skill-group:nth-child(3) .skill-pill { opacity:0; animation: pill-appear .28s ease both; animation-delay: .24s; }
+
+@keyframes preview-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-3px); }
+}
+.velum-mini-cal     { animation: preview-float 5s ease-in-out 1.2s infinite; }
+.hearth-preview-solid { animation: preview-float 5s ease-in-out 2.1s infinite; }
+.love-preview       { animation: preview-float 5s ease-in-out 1.6s infinite; }
+
+@keyframes cta-glow {
+  0%, 100% { box-shadow: 0 4px 16px rgba(90,138,98,.2); }
+  50%       { box-shadow: 0 8px 28px rgba(90,138,98,.42); }
+}
+.hero-cta-btn { animation: cta-glow 3.2s ease-in-out 1.4s infinite; }
+
 @media(max-width:900px){
   .hero-inner { padding: 0 28px; }
   nav,.experience,.projects,.about,.skills,.contact { padding-left:28px; padding-right:28px; }
   .about-grid { grid-template-columns:1fr; gap:20px; }
   .projects-grid { grid-template-columns:1fr; gap:20px; }
-  .skills-layout { grid-template-columns:1fr; }
+  .skills-grid { grid-template-columns:1fr; }
   footer { padding:20px 28px; flex-direction:column; gap:6px; }
   .hero-ghost-word { display:none; }
   .hero-accent-line { left: 28px; }
@@ -720,9 +742,6 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
         <span class="hero-stat-num">0<em>→1</em></span>
         <span class="hero-stat-desc">Builder</span>
       </div>
-      <div class="hero-stat-item">
-        <span class="hero-stat-num" style="font-size:.82rem; letter-spacing:-.01em; line-height:1.2;">Health &amp; Consumer</span>
-      </div>
     </div>
 
     <div class="hero-cta-row">
@@ -777,7 +796,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
           <span class="exp-role-badge">Remote</span>
         </div>
         <ul class="exp-role-highlights">
-          <li>Built add-on monetization from scratch — <strong>tripled upgrade rates</strong> by redesigning paywall and checkout flows to better match user intent at the moment of decision</li>
+          <li>Built add-on monetization from scratch, <strong>tripling upgrade rates</strong> by redesigning paywall and checkout flows to better match user intent at the moment of decision</li>
           <li>Redesigned the free trial experience end-to-end, increasing trial-to-paid conversion <strong>27×</strong></li>
           <li>Launched <strong>Group Plans from 0 to 900+ subscribers</strong>, opening a new acquisition channel and extending household reach</li>
         </ul>
@@ -791,7 +810,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
         <ul class="exp-role-highlights">
           <li>Led beta launch of Helium's first consumer plan, reaching <strong>81k users</strong> with <strong>24% 90-day retention</strong></li>
           <li>Restructured plan tiers and pricing to reduce churn and improve LTV alignment across subscriber cohorts</li>
-          <li>Served as <strong>acting product lead</strong> during leadership transition — maintained roadmap velocity and cross-functional alignment</li>
+          <li>Served as <strong>acting product lead</strong> during leadership transition, maintaining roadmap velocity and cross-functional alignment</li>
           <li>Owned billing infrastructure buildout: payments, taxes, and fraud monitoring from scratch</li>
           <li>Built SQL and Amplitude dashboards to track subscription health, funnel performance, and payment anomalies</li>
         </ul>
@@ -804,7 +823,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
         </div>
         <ul class="exp-role-highlights">
           <li>Improved the Helium Console device management experience, redesigning key flows to increase mobile engagement by <strong>15%</strong></li>
-          <li>Developed prioritization instincts through roadmap research with 7,000+ users — learning to distinguish signal from noise before building</li>
+          <li>Developed prioritization instincts through roadmap research with 7,000+ users, learning to distinguish signal from noise before building</li>
         </ul>
       </div>
     </div>
@@ -928,8 +947,8 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
 
     <div class="skill-group">
       <div class="skill-group-header">
-        <div class="skill-group-icon">🔬</div>
-        <p class="skill-group-title">Data & Analytics</p>
+        <div class="skill-group-icon">⚙️</div>
+        <p class="skill-group-title">Technical & Data</p>
       </div>
       <div class="skill-tags-wrap">
         <span class="skill-pill core">SQL</span>
@@ -938,29 +957,11 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
         <span class="skill-pill core">Funnel Analytics</span>
         <span class="skill-pill core">Payments & Fraud Monitoring</span>
         <span class="skill-pill core">User Research</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-group-header">
-        <div class="skill-group-icon">🛠</div>
-        <p class="skill-group-title">Tools</p>
-      </div>
-      <div class="skill-tags-wrap">
         <span class="skill-pill">Figma</span>
         <span class="skill-pill">Braze</span>
         <span class="skill-pill">Stripe</span>
         <span class="skill-pill">Linear</span>
         <span class="skill-pill">Notion</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-group-header">
-        <div class="skill-group-icon">⚙️</div>
-        <p class="skill-group-title">AI & Technical</p>
-      </div>
-      <div class="skill-tags-wrap">
         <span class="skill-pill core">Anthropic Claude API</span>
         <span class="skill-pill core">Prompt Engineering</span>
         <span class="skill-pill">Next.js</span>
@@ -972,7 +973,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
       </div>
     </div>
 
-    <div class="skill-group skill-group-full">
+    <div class="skill-group">
       <div class="skill-group-header">
         <div class="skill-group-icon">🏥</div>
         <p class="skill-group-title">Health & Compliance</p>

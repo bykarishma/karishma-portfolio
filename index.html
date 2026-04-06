@@ -260,6 +260,34 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 
 .hero-year-badge { display: none; }
 
+/* ── CREDENTIAL BADGES ── */
+.hero-badges {
+  position: absolute;
+  top: 130px;
+  right: max(72px, calc((100% - 1080px)/2 + 72px));
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 6;
+  opacity: 0;
+  animation: fadeSlideIn .9s ease .85s forwards;
+}
+.hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #F4F1EC;
+  border: 1px solid rgba(0,0,0,0.09);
+  border-radius: 100px;
+  padding: 8px 16px 8px 11px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  backdrop-filter: blur(8px);
+}
+.hero-badge-icon { font-size: .78rem; flex-shrink: 0; line-height: 1; }
+.hero-badge-text { display: flex; flex-direction: column; gap: 1px; }
+.hero-badge-title { font-size: .62rem; font-weight: 500; color: #1a1a18; letter-spacing: .01em; white-space: nowrap; }
+.hero-badge-sub { font-size: .54rem; color: #6B6B67; letter-spacing: .04em; white-space: nowrap; }
+
 @keyframes fadeSlideIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
 /* Hero scroll-out effect */
@@ -287,6 +315,9 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .exp-header h2 { font-family:'DM Serif Display',serif; font-size:clamp(2.2rem,3.8vw,3.4rem); font-weight:400; line-height:1.1; color:#F0EFEB; }
 .exp-header h2 em { font-style:italic; color:var(--sage); }
 .exp-years { display:none; }
+
+.exp-subhead { font-size: .88rem; color: rgba(255,255,255,.42); line-height: 1.75; max-width: 560px; margin-top: 10px; margin-bottom: 8px; font-weight: 300; }
+.exp-role-highlights li .metric { color: var(--sage-deep); font-weight: 400; }
 
 .exp-company { border-radius:16px; overflow:hidden; background: #F9F7F4; border: 1px solid rgba(255,255,255,.06); }
 .exp-co-date { font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); margin-bottom:10px; display:block; }
@@ -325,16 +356,20 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .projects .label { color:var(--soft); }
 .projects .label::before { background:var(--rule); }
 .projects { background:var(--bg); padding:60px max(72px, calc((100% - 1080px)/2 + 72px)); position:relative; overflow:hidden; }
-.projects-header { margin-bottom:24px; }
+.projects-header { margin-bottom:36px; }
 .projects-header h2 { font-family:'DM Serif Display',serif; font-size:clamp(2.2rem,3.8vw,3.4rem); font-weight:400; line-height:1.1; color:var(--black); }
 .projects-header h2 em { font-style:italic; color:var(--sage); }
-.projects-grid { position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; align-items:stretch; }
-.proj-card { background:var(--white); border:1px solid var(--rule); border-radius:16px; padding:36px 36px 28px; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:all .3s; position:relative; overflow:hidden; cursor:pointer; height:100%; box-sizing:border-box; }
-.proj-card:hover { border-color:var(--sage); transform:translateY(-4px); box-shadow:0 12px 36px rgba(0,0,0,.07); }
-.proj-status { display:inline-flex; align-items:center; gap:7px; font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:var(--soft); margin-bottom:20px; }
+.projects-subhead { font-size:.88rem; color:var(--dim); line-height:1.75; max-width:560px; margin-top:10px; font-weight:300; }
+.projects-grid { position:relative; z-index:1; display:flex; flex-direction:column; gap:20px; }
+.proj-card { background:var(--white); border:1px solid var(--rule); border-radius:16px; text-decoration:none; color:inherit; display:grid; grid-template-columns:40% 1fr; transition:all .3s; position:relative; overflow:hidden; cursor:pointer; box-sizing:border-box; }
+.proj-card:hover { transform:translateY(-3px); box-shadow:0 14px 44px rgba(0,0,0,.08); }
+.proj-left { display:flex; align-items:center; justify-content:center; padding:40px 36px; }
+.proj-right { padding:40px 44px 32px; display:flex; flex-direction:column; border-left:1px solid rgba(0,0,0,0.06); background:rgba(255,255,255,0.82); }
+.proj-status { display:inline-flex; align-items:center; gap:7px; font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:var(--soft); margin-bottom:16px; }
 .proj-dot { width:5px; height:5px; border-radius:50%; background:var(--sage); animation:hb 2.4s ease-in-out infinite; }
 @keyframes hb { 0%,100%{box-shadow:0 0 0 0 rgba(147,181,151,.4)}50%{box-shadow:0 0 0 5px rgba(147,181,151,0)} }
 .proj-dot.static { animation:none; background:var(--soft); }
+.proj-dot-amber { background:#C8933A; animation:none; }
 .proj-title { font-family:'DM Serif Display',serif; font-size:1.7rem; font-weight:400; color:var(--black); line-height:1.15; margin-bottom:12px; }
 .proj-title em { font-style:italic; color:var(--sage); }
 .proj-body { font-size:.87rem; line-height:1.85; color:var(--dim); margin-bottom:24px; flex:1; }
@@ -342,6 +377,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .proj-tag { font-size:.58rem; letter-spacing:.09em; text-transform:uppercase; padding:3px 11px; border:1px solid var(--rule); border-radius:100px; color:var(--soft); }
 .proj-visit-link { display:block; text-align:center; font-size:.62rem; letter-spacing:.08em; color:var(--soft); text-decoration:none; margin-top:8px; transition:color .2s; }
 .proj-visit-link:hover { color:var(--black); }
+.proj-coming-label { font-size:.6rem; color:rgba(253,246,238,0.32); letter-spacing:.08em; text-align:center; margin-top:7px; }
 /* Heart accent for Lovetivity — real design system */
 .proj-card-love {
   order: 3;
@@ -349,51 +385,40 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   border-color: rgba(232,97,74,0.25);
   color: #FDF6EE;
 }
-.proj-card-love:hover { border-color: rgba(232,97,74,0.5); box-shadow: 0 12px 36px rgba(232,97,74,.15); }
-.proj-card-love .proj-body { color: rgba(253,246,238,0.6); }
+.proj-card-love:hover { border-color: rgba(232,97,74,0.5); box-shadow: 0 14px 44px rgba(232,97,74,.15); }
+.proj-card-love .proj-right { background: rgba(44,26,14,0.45); border-left-color: rgba(255,255,255,0.06); }
+.proj-card-love .proj-body { color: rgba(253,246,238,0.55); }
 .proj-card-love .proj-tag { border-color: rgba(253,246,238,0.12); color: rgba(253,246,238,0.45); background: rgba(253,246,238,0.04); }
-.proj-card-love .proj-status { color: rgba(253,246,238,0.4); }
-.proj-card-love .proj-dot { background: #E8614A; }
-.proj-card-love .proj-cta-btn { background: #E8614A; color: white; }
-.proj-card-love:hover .proj-cta-btn { background: #c94d38; }
-/* Lovetivity title uses Fraunces serif */
+.proj-card-love .proj-status { color: #C8933A; }
 .proj-card-love .proj-title { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; color: #FDF6EE; }
-/* Mini app preview */
+/* Muted CTA for coming soon */
+.proj-cta-btn-muted { background: rgba(255,255,255,0.1) !important; border: 1px solid rgba(255,255,255,0.14); opacity: .75; }
+.proj-cta-btn-muted:hover { background: rgba(255,255,255,0.18) !important; opacity: 1; }
+/* Lovetivity preview — simplified bars + streak */
 .love-preview {
-  background: rgba(253,246,238,0.06);
+  background: rgba(253,246,238,0.05);
   border: 1px solid rgba(253,246,238,0.1);
   border-radius: 14px;
-  padding: 14px 16px;
-  margin-bottom: 20px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  min-height: 148px;
+  gap: 16px;
+  width: 100%;
+  max-width: 230px;
 }
-.love-preview-header {
-  display: flex; align-items: center; justify-content: space-between;
-}
-.love-preview-title {
-  font-family: 'Fraunces', serif; font-style: italic;
-  font-size: .72rem; color: rgba(253,246,238,0.9); font-weight: 300;
-}
+.love-streak-center { display: flex; justify-content: center; }
 .love-streak {
-  display: flex; align-items: center; gap: 6px;
-  background: rgba(232,97,74,0.25); border-radius: 8px;
-  padding: 4px 9px;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(232,97,74,0.22); border-radius: 10px;
+  padding: 7px 13px;
 }
-.love-streak-num { font-family: 'Fraunces', serif; font-size: .85rem; color: rgba(253,246,238,0.9); font-weight: 500; }
-.love-streak-label { font-size: .52rem; color: rgba(253,246,238,0.5); letter-spacing: .06em; text-transform: uppercase; }
-.love-bars { display: flex; flex-direction: column; gap: 6px; }
-.love-bar-row { display: flex; align-items: center; gap: 8px; }
-.love-bar-dot { width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; }
+.love-streak-num { font-family: 'Fraunces', serif; font-size: .95rem; color: rgba(253,246,238,0.9); font-weight: 500; }
+.love-streak-label { font-size: .52rem; color: rgba(253,246,238,0.45); letter-spacing: .06em; text-transform: uppercase; }
+.love-bars { display: flex; flex-direction: column; gap: 10px; }
+.love-bar-row { display: flex; align-items: center; gap: 10px; }
+.love-partner { font-size: .58rem; color: rgba(253,246,238,0.5); width: 56px; flex-shrink: 0; letter-spacing: .02em; }
 .love-bar-track { flex: 1; height: 5px; border-radius: 99px; background: rgba(253,246,238,0.08); overflow: hidden; }
 .love-bar-fill { height: 100%; border-radius: 99px; }
-.love-bar-label { font-size: .58rem; color: rgba(253,246,238,0.4); width: 26px; text-align: right; font-family: 'DM Sans', sans-serif; }
-.love-bubbles { display: flex; flex-direction: column; gap: 5px; }
-.love-bubble { font-size: .65rem; padding: 5px 10px; border-radius: 10px; max-width: 80%; line-height: 1.3; font-family: 'DM Sans', sans-serif; }
-.love-bubble.them { background: rgba(255,255,255,0.1); color: rgba(253,246,238,0.75); border-radius: 10px 10px 10px 3px; }
-.love-bubble.me { background: #E8614A; color: white; border-radius: 10px 10px 3px 10px; align-self: flex-end; margin-left: auto; }
 /* Full-width CTA button at card bottom */
 .proj-cta-btn {
   display: flex;
@@ -412,33 +437,14 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   margin-top: auto;
 }
 .proj-card:hover .proj-cta-btn { background: #3d6644; }
-.proj-card-love .proj-cta-btn { background: #b56270; }
-.proj-card-love:hover .proj-cta-btn { background: #8f4452; }
-/* Rotaset card — matches actual Rotaset design system */
+/* Rotaset card */
 .proj-card-velum {
   order: 1;
   background: linear-gradient(135deg, #eef4f0 0%, #e8f0f5 50%, #edf0f8 100%);
   border-color: rgba(61,107,74,0.2);
-  position: relative;
-  overflow: hidden;
 }
-.proj-card-velum::before {
-  content: '';
-  position: absolute;
-  top: -60px; right: -60px;
-  width: 200px; height: 200px;
-  background: radial-gradient(circle, rgba(61,107,74,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-.proj-card-velum::after {
-  content: '';
-  position: absolute;
-  bottom: -40px; left: -40px;
-  width: 160px; height: 160px;
-  background: radial-gradient(circle, rgba(147,197,253,0.12) 0%, transparent 70%);
-  pointer-events: none;
-}
-.proj-card-velum:hover { border-color: rgba(61,107,74,0.4); box-shadow: 0 12px 36px rgba(61,107,74,.12); }
+.proj-card-velum:hover { border-color: rgba(61,107,74,0.4); box-shadow: 0 14px 44px rgba(61,107,74,.12); }
+.proj-card-velum .proj-right { background: rgba(255,255,255,0.84); border-left-color: rgba(61,107,74,0.08); }
 .proj-card-velum .proj-cta-btn { background: #3d6b4a; }
 .proj-card-velum:hover .proj-cta-btn { background: #2e5238; }
 /* Hearth card */
@@ -447,7 +453,8 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   background: #F0EBE3;
   border-color: rgba(114,47,55,0.18);
 }
-.proj-card-hearth:hover { border-color: rgba(114,47,55,0.4); box-shadow: 0 12px 36px rgba(114,47,55,.12); }
+.proj-card-hearth:hover { border-color: rgba(114,47,55,0.4); box-shadow: 0 14px 44px rgba(114,47,55,.12); }
+.proj-card-hearth .proj-right { background: rgba(255,252,248,0.86); border-left-color: rgba(114,47,55,0.08); }
 .proj-card-hearth .proj-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; color: #722F37; }
 .proj-card-hearth .proj-body { color: #5a3a3a; }
 .proj-card-hearth .proj-status { color: #9a6b6e; }
@@ -460,8 +467,10 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   background: #F0EBE3;
   border: 1px solid rgba(114,47,55,0.14);
   border-radius: 12px;
-  margin-bottom: 20px;
-  min-height: 148px;
+  margin-bottom: 0;
+  min-height: 170px;
+  width: 100%;
+  max-width: 230px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -545,9 +554,11 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   border: 1px solid rgba(0,0,0,0.06);
   border-radius: 12px;
   padding: 12px 14px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   backdrop-filter: blur(8px);
-  min-height: 148px;
+  min-height: 168px;
+  width: 100%;
+  max-width: 260px;
 }
 .velum-mini-cal-row {
   display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-bottom: 6px;
@@ -586,37 +597,15 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .skills { background: var(--near); padding: 60px max(72px, calc((100% - 1080px)/2 + 72px)); }
 .skills .label { color: rgba(255,255,255,.35); }
 .skills .label::before { background: rgba(255,255,255,.15); }
-.skills-header { margin-bottom: 24px; }
+.skills-header { margin-bottom: 32px; }
 .skills-header h2 { font-family:'DM Serif Display',serif; font-size:clamp(2.2rem,3.8vw,3.4rem); font-weight:400; color:#F0EFEB; line-height:1.05; }
 .skills-header h2 em { font-style:italic; color:var(--sage); }
 
-.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-
-.skill-group {
-  background: var(--white);
-  border: 1px solid var(--rule);
-  border-radius: 12px;
-  padding: 16px 18px;
-}
-.skill-group-header {
-  display: flex; align-items: center; gap: 10px;
-  margin-bottom: 12px;
-}
-.skill-group-icon {
-  width: 26px; height: 26px; border-radius: 7px;
-  background: var(--sage-bg); border: 1px solid var(--sage-lt);
-  display: flex; align-items: center; justify-content: center;
-  font-size: .78rem; flex-shrink: 0;
-}
-.skill-group-title { font-size: .78rem; font-weight: 500; color: var(--black); }
-.skill-tags-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
-.skill-pill {
-  font-size: .68rem; padding: 4px 10px; border-radius: 100px;
-  border: 1px solid var(--rule); color: var(--dim); background: var(--bg);
-  cursor: default; transition: background .2s, border-color .2s, color .2s;
-}
-.skill-pill:hover { background: var(--sage-bg); border-color: var(--sage-lt); color: var(--sage-deep); }
-.skill-pill.core { background: var(--sage-bg); border-color: var(--sage-lt); color: var(--sage-deep); font-weight: 500; }
+.skills-list { display: flex; flex-direction: column; }
+.skills-row { display: grid; grid-template-columns: 200px 1fr; gap: 36px; align-items: baseline; padding: 26px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.skills-row:last-child { border-bottom: none; padding-bottom: 0; }
+.skills-cat { font-size: .72rem; font-weight: 600; color: var(--sage); letter-spacing: .03em; line-height: 1.6; }
+.skills-tags { font-size: .88rem; color: rgba(255,255,255,0.42); line-height: 1.9; font-weight: 300; }
 
 /* ── CONTACT ── */
 .contact { background:var(--bg); padding:70px max(72px, calc((100% - 1080px)/2 + 72px)); position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; text-align:center; border-top:1px solid var(--rule); }
@@ -656,21 +645,21 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
 .d3 { transition-delay:.38s; }
 
 /* ── EXTRA ANIMATIONS ── */
-@keyframes pill-appear {
-  from { opacity: 0; transform: translateY(5px) scale(.95); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-.skills-grid.in .skill-group:nth-child(1) .skill-pill { opacity:0; animation: pill-appear .28s ease both; }
-.skills-grid.in .skill-group:nth-child(2) .skill-pill { opacity:0; animation: pill-appear .28s ease both; animation-delay: .12s; }
-.skills-grid.in .skill-group:nth-child(3) .skill-pill { opacity:0; animation: pill-appear .28s ease both; animation-delay: .24s; }
-
 @keyframes preview-float {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-3px); }
 }
-.velum-mini-cal     { animation: preview-float 5s ease-in-out 1.2s infinite; }
+.velum-mini-cal       { animation: preview-float 5s ease-in-out 1.2s infinite; }
 .hearth-preview-solid { animation: preview-float 5s ease-in-out 2.1s infinite; }
-.love-preview       { animation: preview-float 5s ease-in-out 1.6s infinite; }
+.love-preview         { animation: preview-float 5s ease-in-out 1.6s infinite; }
+
+@keyframes skills-row-in {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.skills-list.in .skills-row:nth-child(1) { animation: skills-row-in .4s ease .05s both; }
+.skills-list.in .skills-row:nth-child(2) { animation: skills-row-in .4s ease .18s both; }
+.skills-list.in .skills-row:nth-child(3) { animation: skills-row-in .4s ease .31s both; }
 
 @keyframes cta-glow {
   0%, 100% { box-shadow: 0 4px 16px rgba(90,138,98,.2); }
@@ -680,10 +669,15 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
 
 @media(max-width:900px){
   .hero-inner { padding: 0 28px; }
+  .hero-badges { display: none; }
   nav,.experience,.projects,.about,.skills,.contact { padding-left:28px; padding-right:28px; }
   .about-grid { grid-template-columns:1fr; gap:20px; }
-  .projects-grid { grid-template-columns:1fr; gap:20px; }
-  .skills-grid { grid-template-columns:1fr; }
+  .proj-card { grid-template-columns: 1fr; }
+  .proj-left { padding: 28px 28px 16px; }
+  .proj-right { border-left: none; border-top: 1px solid rgba(0,0,0,0.06); padding: 24px 28px 28px; }
+  .proj-card-love .proj-right { border-top-color: rgba(255,255,255,0.06); }
+  .velum-mini-cal, .hearth-preview-solid, .love-preview { max-width: 100%; }
+  .skills-row { grid-template-columns: 1fr; gap: 8px; }
   footer { padding:20px 28px; flex-direction:column; gap:6px; }
   .hero-ghost-word { display:none; }
   .hero-accent-line { left: 28px; }
@@ -750,6 +744,30 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
     </div>
   </div>
 
+  <div class="hero-badges">
+    <div class="hero-badge">
+      <span class="hero-badge-icon">✦</span>
+      <div class="hero-badge-text">
+        <span class="hero-badge-title">AI Product Management</span>
+        <span class="hero-badge-sub">IBM · Apr 2026</span>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-badge-icon">⬡</span>
+      <div class="hero-badge-text">
+        <span class="hero-badge-title">CHPA Certified</span>
+        <span class="hero-badge-sub">HIPAA Training · Mar 2026</span>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-badge-icon">⊞</span>
+      <div class="hero-badge-text">
+        <span class="hero-badge-title">SQL for Data Science</span>
+        <span class="hero-badge-sub">UC Davis · Jan 2022</span>
+      </div>
+    </div>
+  </div>
+
   <div class="scroll-cue">
     <div class="scroll-pip"></div>
     <span>Scroll to explore</span>
@@ -772,6 +790,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
     <div>
       <p class="label">Experience</p>
       <h2>Where I've<br><em>built things.</em></h2>
+      <p class="exp-subhead">Five years of professional product work, starting as an intern and growing into full ownership of subscription growth, monetization, and 0 to 1 launches.</p>
     </div>
   </div>
 
@@ -796,9 +815,9 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
           <span class="exp-role-badge">Remote</span>
         </div>
         <ul class="exp-role-highlights">
-          <li>Built add-on monetization from scratch, <strong>tripling upgrade rates</strong> by redesigning paywall and checkout flows to better match user intent at the moment of decision</li>
-          <li>Redesigned the free trial experience end-to-end, increasing trial-to-paid conversion <strong>27×</strong></li>
-          <li>Launched <strong>Group Plans from 0 to 900+ subscribers</strong>, opening a new acquisition channel and extending household reach</li>
+          <li>Built add-on monetization from scratch, <span class="metric">tripling upgrade rates</span> by redesigning paywall and checkout flows to better match user intent at the moment of decision</li>
+          <li>Redesigned the free trial experience end-to-end, increasing trial-to-paid conversion <span class="metric">27×</span></li>
+          <li>Launched Group Plans from <span class="metric">0 to 900+ subscribers</span>, opening a new acquisition channel and extending household reach</li>
         </ul>
       </div>
       <div class="exp-role-item">
@@ -808,9 +827,9 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
           <span class="exp-role-badge">Remote</span>
         </div>
         <ul class="exp-role-highlights">
-          <li>Led beta launch of Helium's first consumer plan, reaching <strong>81k users</strong> with <strong>24% 90-day retention</strong></li>
+          <li>Led beta launch of Helium's first consumer plan, reaching <span class="metric">81k users</span> with <span class="metric">24% 90-day retention</span></li>
           <li>Restructured plan tiers and pricing to reduce churn and improve LTV alignment across subscriber cohorts</li>
-          <li>Served as <strong>acting product lead</strong> during leadership transition, maintaining roadmap velocity and cross-functional alignment</li>
+          <li>Served as acting product lead during leadership transition, maintaining roadmap velocity and cross-functional alignment</li>
           <li>Owned billing infrastructure buildout: payments, taxes, and fraud monitoring from scratch</li>
           <li>Built SQL and Amplitude dashboards to track subscription health, funnel performance, and payment anomalies</li>
         </ul>
@@ -822,7 +841,7 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
           <span class="exp-role-badge">Remote</span>
         </div>
         <ul class="exp-role-highlights">
-          <li>Improved the Helium Console device management experience, redesigning key flows to increase mobile engagement by <strong>15%</strong></li>
+          <li>Improved the Helium Console device management experience, redesigning key flows to increase mobile engagement by <span class="metric">15%</span></li>
           <li>Developed prioritization instincts through roadmap research with 7,000+ users, learning to distinguish signal from noise before building</li>
         </ul>
       </div>
@@ -833,92 +852,104 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
   <div class="projects-header reveal">
     <p class="label">Side Projects</p>
     <h2>What I'm<br><em>building.</em></h2>
+    <p class="projects-subhead">Independent projects where I take everything I know about building consumer products and apply it to spaces I care about.</p>
   </div>
   <div class="projects-grid">
+
+    <!-- Rotaset -->
     <div onclick="window.location='rotaset.html'" class="proj-card proj-card-velum reveal">
-      <div class="proj-velum-header">
-        <div class="proj-velum-logo">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M8 12h8M12 8v8"/></svg>
-        </div>
-        <span class="proj-velum-wordmark">Rotaset</span>
-      </div>
-      <!-- Mini calendar echoing the actual dashboard -->
-      <div class="velum-mini-cal">
-        <div class="velum-mini-cal-row">
-          <div class="velum-mini-cal-day">S</div><div class="velum-mini-cal-day">M</div><div class="velum-mini-cal-day">T</div><div class="velum-mini-cal-day">W</div><div class="velum-mini-cal-day">T</div><div class="velum-mini-cal-day">F</div><div class="velum-mini-cal-day">S</div>
-        </div>
-        <div class="velum-mini-cal-grid">
-          <div class="velum-mini-cal-cell muted">26</div><div class="velum-mini-cal-cell muted">27</div><div class="velum-mini-cal-cell muted">28</div><div class="velum-mini-cal-cell">1</div><div class="velum-mini-cal-cell has-event">2</div><div class="velum-mini-cal-cell">3</div><div class="velum-mini-cal-cell">4</div>
-          <div class="velum-mini-cal-cell">5</div><div class="velum-mini-cal-cell has-event">6</div><div class="velum-mini-cal-cell">7</div><div class="velum-mini-cal-cell">8</div><div class="velum-mini-cal-cell has-event">9</div><div class="velum-mini-cal-cell">10</div><div class="velum-mini-cal-cell">11</div>
-          <div class="velum-mini-cal-cell">12</div><div class="velum-mini-cal-cell">13</div><div class="velum-mini-cal-cell has-event">14</div><div class="velum-mini-cal-cell">15</div><div class="velum-mini-cal-cell active">16</div><div class="velum-mini-cal-cell">17</div><div class="velum-mini-cal-cell">18</div>
+      <div class="proj-left">
+        <div class="velum-mini-cal">
+          <div class="velum-mini-cal-row">
+            <div class="velum-mini-cal-day">S</div><div class="velum-mini-cal-day">M</div><div class="velum-mini-cal-day">T</div><div class="velum-mini-cal-day">W</div><div class="velum-mini-cal-day">T</div><div class="velum-mini-cal-day">F</div><div class="velum-mini-cal-day">S</div>
+          </div>
+          <div class="velum-mini-cal-grid">
+            <div class="velum-mini-cal-cell muted">26</div><div class="velum-mini-cal-cell muted">27</div><div class="velum-mini-cal-cell muted">28</div><div class="velum-mini-cal-cell">1</div><div class="velum-mini-cal-cell has-event">2</div><div class="velum-mini-cal-cell">3</div><div class="velum-mini-cal-cell">4</div>
+            <div class="velum-mini-cal-cell">5</div><div class="velum-mini-cal-cell has-event">6</div><div class="velum-mini-cal-cell">7</div><div class="velum-mini-cal-cell">8</div><div class="velum-mini-cal-cell has-event">9</div><div class="velum-mini-cal-cell">10</div><div class="velum-mini-cal-cell">11</div>
+            <div class="velum-mini-cal-cell">12</div><div class="velum-mini-cal-cell">13</div><div class="velum-mini-cal-cell has-event">14</div><div class="velum-mini-cal-cell">15</div><div class="velum-mini-cal-cell active">16</div><div class="velum-mini-cal-cell">17</div><div class="velum-mini-cal-cell">18</div>
+          </div>
         </div>
       </div>
-      <div class="proj-status"><div class="proj-dot"></div>Live · In Beta</div>
-      <p class="proj-title">Rotaset</p>
-      <p class="proj-body">A smart study scheduler built for medical students. Rotaset removes the planning overhead entirely. Personalized schedule generation, a calming UI, and a one-click reset when life gets in the way.</p>
-      <div class="proj-tags">
-        <span class="proj-tag">Web App</span><span class="proj-tag">EdTech</span><span class="proj-tag">AI</span><span class="proj-tag">HealthTech</span>
+      <div class="proj-right">
+        <div class="proj-velum-header">
+          <div class="proj-velum-logo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <span class="proj-velum-wordmark">Rotaset</span>
+        </div>
+        <div class="proj-status"><div class="proj-dot"></div>Live · In Beta</div>
+        <p class="proj-title">Rotaset</p>
+        <p class="proj-body">A smart study scheduler built for medical students. Rotaset removes the planning overhead entirely. Personalized schedule generation, a calming UI, and a one-click reset when life gets in the way.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Web App</span><span class="proj-tag">EdTech</span><span class="proj-tag">AI</span><span class="proj-tag">HealthTech</span>
+        </div>
+        <a href="rotaset.html" class="proj-cta-btn" onclick="event.stopPropagation()">Explore Rotaset <span>→</span></a>
+        <a href="https://rotaset.org" target="_blank" rel="noopener" class="proj-visit-link" onclick="event.stopPropagation()">Visit live app ↗</a>
       </div>
-      <a href="rotaset.html" class="proj-cta-btn" onclick="event.stopPropagation()">Explore Rotaset <span>→</span></a>
-      <a href="https://rotaset.org" target="_blank" rel="noopener" class="proj-visit-link" onclick="event.stopPropagation()">Visit live app ↗</a>
     </div>
+
+    <!-- Hearth -->
     <div onclick="window.location='hearth.html'" class="proj-card proj-card-hearth reveal d1">
-      <div class="hearth-preview-solid">
-        <div class="hearth-preview-solid-top">
-          <p class="hearth-preview-solid-name">Hearth</p>
-          <p class="hearth-preview-solid-tagline">Caregiver briefing tool</p>
-          <div class="hearth-preview-mini-card">
-            <p class="hearth-preview-mini-label">At a glance</p>
-            <div class="hearth-preview-mini-line"></div>
-            <div class="hearth-preview-mini-line"></div>
+      <div class="proj-left">
+        <div class="hearth-preview-solid">
+          <div class="hearth-preview-solid-top">
+            <p class="hearth-preview-solid-name">Hearth</p>
+            <p class="hearth-preview-solid-tagline">Caregiver briefing tool</p>
+            <div class="hearth-preview-mini-card">
+              <p class="hearth-preview-mini-label">At a glance</p>
+              <div class="hearth-preview-mini-line"></div>
+              <div class="hearth-preview-mini-line"></div>
+            </div>
           </div>
+          <div class="hearth-preview-solid-pills">No account &nbsp;·&nbsp; Free &nbsp;·&nbsp; 10 min</div>
         </div>
-        <div class="hearth-preview-solid-pills">No account &nbsp;·&nbsp; Free &nbsp;·&nbsp; 10 min</div>
       </div>
-      <div class="proj-status"><div class="proj-dot"></div>Live</div>
-      <p class="proj-title">Hearth</p>
-      <p class="proj-body">A free caregiver briefing tool for people who become caregivers before they feel ready. Ten minutes to go from overwhelmed to organized.</p>
-      <div class="proj-tags">
-        <span class="proj-tag">HealthTech</span><span class="proj-tag">AI</span><span class="proj-tag">0→1</span>
+      <div class="proj-right">
+        <div class="proj-status"><div class="proj-dot"></div>Live</div>
+        <p class="proj-title">Hearth</p>
+        <p class="proj-body">A free caregiver briefing tool for people who become caregivers before they feel ready. Ten minutes to go from overwhelmed to organized.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">HealthTech</span><span class="proj-tag">AI</span><span class="proj-tag">0→1</span>
+        </div>
+        <a href="hearth.html" class="proj-cta-btn" onclick="event.stopPropagation()">Explore Hearth <span>→</span></a>
+        <a href="https://hearth.today" target="_blank" rel="noopener" class="proj-visit-link" onclick="event.stopPropagation()">Visit live app ↗</a>
       </div>
-      <a href="hearth.html" class="proj-cta-btn" onclick="event.stopPropagation()">Explore Hearth <span>→</span></a>
-      <a href="https://hearth.today" target="_blank" rel="noopener" class="proj-visit-link" onclick="event.stopPropagation()">Visit live app ↗</a>
     </div>
+
+    <!-- Lovetivity -->
     <div onclick="window.location='lovetivity.html'" class="proj-card proj-card-love reveal d2">
-      <!-- Mini app preview using real Lovetivity design system -->
-      <div class="love-preview">
-        <div class="love-preview-header">
-          <span class="love-preview-title">Today's workout</span>
-          <div class="love-streak">
-            <span class="love-streak-num">🔥 12</span>
-            <span class="love-streak-label">day streak</span>
+      <div class="proj-left">
+        <div class="love-preview">
+          <div class="love-streak-center">
+            <div class="love-streak">
+              <span class="love-streak-num">🔥 12</span>
+              <span class="love-streak-label">day streak</span>
+            </div>
           </div>
-        </div>
-        <div class="love-bars">
-          <div class="love-bar-row">
-            <div class="love-bar-dot" style="background:#E8614A;"></div>
-            <div class="love-bar-track"><div class="love-bar-fill" style="width:78%; background:#E8614A;"></div></div>
-            <span class="love-bar-label">You</span>
+          <div class="love-bars">
+            <div class="love-bar-row">
+              <span class="love-partner">Karishma</span>
+              <div class="love-bar-track"><div class="love-bar-fill" style="width:78%;background:#E8614A;"></div></div>
+            </div>
+            <div class="love-bar-row">
+              <span class="love-partner">Milan</span>
+              <div class="love-bar-track"><div class="love-bar-fill" style="width:55%;background:#7A9E7E;"></div></div>
+            </div>
           </div>
-          <div class="love-bar-row">
-            <div class="love-bar-dot" style="background:#7A9E7E;"></div>
-            <div class="love-bar-track"><div class="love-bar-fill" style="width:55%; background:#7A9E7E;"></div></div>
-            <span class="love-bar-label">Them</span>
-          </div>
-        </div>
-        <div class="love-bubbles">
-          <div class="love-bubble them">done with my run 🏃</div>
-          <div class="love-bubble me">let's gooo!! 🔥</div>
         </div>
       </div>
-      <div class="proj-status"><div class="proj-dot"></div>In Progress</div>
-      <p class="proj-title">Lovetivity</p>
-      <p class="proj-body">A couples fitness app that turns working out into a shared commitment. Show up for yourself and your partner at the same time.</p>
-      <div class="proj-tags">
-        <span class="proj-tag">Mobile</span><span class="proj-tag">Health & Fitness</span><span class="proj-tag">Consumer</span><span class="proj-tag">Relationship</span>
+      <div class="proj-right">
+        <div class="proj-status"><div class="proj-dot proj-dot-amber"></div>Coming Soon</div>
+        <p class="proj-title">Lovetivity</p>
+        <p class="proj-body">A couples fitness app that turns working out into a shared commitment. Show up for yourself and your partner at the same time.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Mobile</span><span class="proj-tag">Health & Fitness</span><span class="proj-tag">Consumer</span><span class="proj-tag">Relationship</span>
+        </div>
+        <a href="lovetivity.html" class="proj-cta-btn proj-cta-btn-muted" onclick="event.stopPropagation()">Explore Lovetivity <span>→</span></a>
+        <p class="proj-coming-label">Case study in progress</p>
       </div>
-      <a href="lovetivity.html" class="proj-cta-btn" onclick="event.stopPropagation()">Explore Lovetivity <span>→</span></a>
     </div>
+
   </div>
 </section>
 
@@ -929,59 +960,18 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
     <h2>What I bring<br><em>to the table.</em></h2>
   </div>
 
-  <div class="skills-grid reveal">
-    <div class="skill-group">
-      <div class="skill-group-header">
-        <div class="skill-group-icon">🧭</div>
-        <p class="skill-group-title">Product & Strategy</p>
-      </div>
-      <div class="skill-tags-wrap">
-        <span class="skill-pill core">0→1 Development</span>
-        <span class="skill-pill core">Subscription & Monetization</span>
-        <span class="skill-pill core">Onboarding & Lifecycle Design</span>
-        <span class="skill-pill core">Roadmap Ownership</span>
-        <span class="skill-pill core">Compliance-Aware Environments</span>
-        <span class="skill-pill core">A/B Testing</span>
-      </div>
+  <div class="skills-list reveal">
+    <div class="skills-row">
+      <span class="skills-cat">Product &amp; Strategy</span>
+      <p class="skills-tags">0→1 Development, Subscription &amp; Monetization, Onboarding &amp; Lifecycle Design, Roadmap Ownership, Compliance-Aware Environments, A/B Testing</p>
     </div>
-
-    <div class="skill-group">
-      <div class="skill-group-header">
-        <div class="skill-group-icon">⚙️</div>
-        <p class="skill-group-title">Technical & Data</p>
-      </div>
-      <div class="skill-tags-wrap">
-        <span class="skill-pill core">SQL</span>
-        <span class="skill-pill core">Amplitude</span>
-        <span class="skill-pill core">PostgreSQL</span>
-        <span class="skill-pill core">Funnel Analytics</span>
-        <span class="skill-pill core">Payments & Fraud Monitoring</span>
-        <span class="skill-pill core">User Research</span>
-        <span class="skill-pill">Figma</span>
-        <span class="skill-pill">Braze</span>
-        <span class="skill-pill">Stripe</span>
-        <span class="skill-pill">Linear</span>
-        <span class="skill-pill">Notion</span>
-        <span class="skill-pill core">Anthropic Claude API</span>
-        <span class="skill-pill core">Prompt Engineering</span>
-        <span class="skill-pill">Next.js</span>
-        <span class="skill-pill">React</span>
-        <span class="skill-pill">Supabase</span>
-        <span class="skill-pill">Google OAuth</span>
-        <span class="skill-pill">Vercel</span>
-        <span class="skill-pill">TypeScript</span>
-      </div>
+    <div class="skills-row">
+      <span class="skills-cat">Technical &amp; Data</span>
+      <p class="skills-tags">SQL, Amplitude, PostgreSQL, Funnel Analytics, Payments &amp; Fraud Monitoring, User Research, Figma, Braze, Stripe, Linear, Notion, Anthropic Claude API, Prompt Engineering, Next.js, React, Supabase, Google OAuth, Vercel, TypeScript</p>
     </div>
-
-    <div class="skill-group">
-      <div class="skill-group-header">
-        <div class="skill-group-icon">🏥</div>
-        <p class="skill-group-title">Health & Compliance</p>
-      </div>
-      <div class="skill-tags-wrap">
-        <span class="skill-pill core">HIPAA</span>
-        <span class="skill-pill core">Certified HIPAA Professional (CHPA)</span>
-      </div>
+    <div class="skills-row">
+      <span class="skills-cat">Health &amp; Compliance</span>
+      <p class="skills-tags">HIPAA, Certified HIPAA Professional (CHPA)</p>
     </div>
   </div>
 </section>
@@ -1043,6 +1033,11 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
     if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
   }),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+  // Skills stagger trigger
+  const skillsObs=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');skillsObs.unobserve(e.target);}
+  }),{threshold:.1});
+  document.querySelectorAll('.skills-list').forEach(r=>skillsObs.observe(r));
 </script>
 </body>
 </html>

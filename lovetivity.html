@@ -56,7 +56,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   align-items: center;
   max-width: 1080px;
   margin: 0 auto;
-  padding: 120px 72px 80px;
+  padding: 80px 72px 80px;
   width: 100%;
 }
 .hero-eyebrow {
@@ -595,6 +595,54 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   .cs-stat-grid { grid-template-columns: 1fr 1fr; }
   .feature-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* ── IN PROGRESS BANNER ── */
+.wip-banner {
+  background: rgba(44,26,14,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(232,97,74,0.28);
+  padding: 11px 72px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .62rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(253,246,238,0.55);
+  margin-top: 58px;
+  position: relative;
+  z-index: 10;
+}
+.wip-pip {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--rose); flex-shrink: 0;
+  animation: wip-glow 2s ease-in-out infinite;
+}
+.wip-sep { opacity: 0.3; }
+.wip-strong { color: rgba(253,246,238,0.75); font-weight: 500; }
+@keyframes wip-glow {
+  0%,100%{box-shadow:0 0 0 0 rgba(232,97,74,0.55)}
+  50%{box-shadow:0 0 0 5px rgba(232,97,74,0)}
+}
+
+/* ── PRODUCT THINKING PLACEHOLDER ── */
+.cs-product-thinking {
+  background: var(--bark);
+  border-top: 1px solid rgba(232,97,74,0.1);
+}
+.cs-product-thinking .cs-h2 { color: var(--cream); }
+.cs-product-thinking .cs-body {
+  background: rgba(253,246,238,0.04);
+  border: 1px solid rgba(232,97,74,0.12);
+  border-left: 3px solid rgba(232,97,74,0.35);
+  border-radius: 10px;
+  padding: 24px 28px;
+  font-size: .92rem;
+  color: rgba(253,246,238,0.45);
+  line-height: 1.85;
+  max-width: 600px;
+  font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -605,6 +653,14 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   <a href="index.html" class="nav-logo">Karishma</a>
   <a href="index.html#projects" class="nav-back">← Back to portfolio</a>
 </nav>
+
+<!-- IN PROGRESS BANNER -->
+<div class="wip-banner">
+  <span class="wip-pip"></span>
+  <span class="wip-strong">In Progress</span>
+  <span class="wip-sep">·</span>
+  Case study documentation underway
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1117,6 +1173,13 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 </section>
 
 <!-- FOOTER -->
+<!-- PRODUCT THINKING PLACEHOLDER -->
+<section class="cs-section cs-product-thinking reveal">
+  <p class="cs-label">Product Thinking</p>
+  <h2 class="cs-h2">Case study<br><em>in progress.</em></h2>
+  <p class="cs-body">Case study in progress. The product thinking behind Lovetivity, including the consumer behavior research, the retention strategy, and the couples engagement model, will be documented here.</p>
+</section>
+
 <footer class="cs-footer">
   <div class="cs-footer-brand">Lovetivity</div>
 </footer>

@@ -441,7 +441,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 /* Rotaset card */
 .proj-card-velum {
   order: 1;
-  background: linear-gradient(135deg, #eef4f0 0%, #e8f0f5 50%, #edf0f8 100%);
+  background: linear-gradient(160deg, #f0f7f2 0%, #e8f4ee 100%);
   border-color: rgba(61,107,74,0.2);
 }
 .proj-card-velum:hover { border-color: rgba(61,107,74,0.4); box-shadow: 0 14px 44px rgba(61,107,74,.12); }
@@ -465,16 +465,17 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .proj-card-hearth:hover .proj-cta-btn { background: #5c2028; }
 /* Hearth preview — warm linen */
 .hearth-preview-solid {
-  background: #F0EBE3;
-  border: 1px solid rgba(114,47,55,0.14);
-  border-radius: 12px;
+  background: linear-gradient(170deg, #F5EFE7 0%, #EDE4D6 100%);
+  border: 1px solid rgba(114,47,55,0.13);
+  border-radius: 14px;
   margin-bottom: 0;
-  min-height: 128px;
+  min-height: 158px;
   width: 100%;
-  max-width: 173px;
+  max-width: 178px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: 0 4px 18px rgba(114,47,55,0.09);
 }
 .hearth-preview-solid-top {
   flex: 1;
@@ -482,102 +483,161 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 12px 14px 10px;
+  padding: 18px 14px 12px;
   gap: 4px;
+}
+.hearth-icon-sq {
+  width: 38px;
+  height: 38px;
+  background: #722F37;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 7px;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(114,47,55,0.28);
 }
 .hearth-preview-solid-name {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 1.55rem;
+  font-size: 1.7rem;
   color: #722F37;
   line-height: 1;
   letter-spacing: -.01em;
 }
 .hearth-preview-solid-tagline {
-  font-size: .5rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: #9a6b6e;
-  margin-bottom: 8px;
-}
-.hearth-preview-mini-card {
-  background: rgba(255,255,255,0.65);
-  border: 1px solid rgba(114,47,55,0.14);
-  border-left: 3px solid #722F37;
-  border-radius: 6px;
-  padding: 6px 9px;
-  width: 100%;
-  max-width: 168px;
-}
-.hearth-preview-mini-label {
   font-size: .42rem;
-  letter-spacing: .14em;
+  letter-spacing: .18em;
   text-transform: uppercase;
-  color: #722F37;
-  margin-bottom: 5px;
+  color: #a07070;
+  margin-bottom: 10px;
 }
-.hearth-preview-mini-line {
-  height: 4px;
+.hearth-preview-get-started {
+  background: #722F37;
+  color: rgba(255,248,248,0.95);
+  font-size: .46rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 5px 18px;
   border-radius: 99px;
-  background: rgba(114,47,55,0.14);
-  margin-bottom: 4px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(114,47,55,0.22);
 }
-.hearth-preview-mini-line:last-child { margin-bottom: 0; width: 62%; }
 .hearth-preview-solid-pills {
-  background: #E4DDD5;
+  background: rgba(114,47,55,0.06);
+  border-top: 1px solid rgba(114,47,55,0.09);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   padding: 6px 10px;
-  font-size: .5rem;
-  letter-spacing: .06em;
-  color: #8a6a6a;
+  font-size: .41rem;
+  letter-spacing: .04em;
+  color: #8a6060;
   flex-shrink: 0;
+  text-align: center;
+  line-height: 1.8;
 }
-.proj-velum-header {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
-}
-.proj-velum-logo {
-  width: 36px; height: 36px; border-radius: 10px;
-  background: #3d6b4a;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.proj-velum-wordmark {
-  font-family: 'DM Mono', monospace;
-  font-size: .82rem; letter-spacing: .32em;
-  text-transform: uppercase; color: #1a1a2e; font-weight: 400;
-}
-/* Mini calendar preview widget inside card */
-.velum-mini-cal {
-  background: rgba(255,255,255,0.75);
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 12px;
-  padding: 10px 12px;
-  margin-bottom: 0;
-  backdrop-filter: blur(8px);
-  min-height: 126px;
+/* Rotaset preview widget */
+.rotaset-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
   width: 100%;
-  max-width: 195px;
+  max-width: 200px;
 }
-.velum-mini-cal-row {
-  display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-bottom: 6px;
+.rotaset-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 9px;
 }
-.velum-mini-cal-day {
-  font-size: .52rem; letter-spacing: .06em; text-transform: uppercase;
-  color: #9ca3af; text-align: center; padding-bottom: 4px;
+.rotaset-logo-sq {
+  width: 32px;
+  height: 32px;
+  background: #3d6b4a;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(61,107,74,0.28);
+}
+.rotaset-wordmark-text {
+  font-family: 'DM Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: #2a4535;
+  font-weight: 500;
+}
+.rotaset-cal-card {
+  background: white;
+  border-radius: 11px;
+  padding: 10px 11px 9px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.11), 0 1px 3px rgba(0,0,0,0.06);
+}
+.rotaset-cal-pill-top {
+  display: inline-block;
+  background: rgba(61,107,74,0.1);
+  color: #3d6b4a;
+  font-size: .4rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 99px;
+  margin-bottom: 7px;
+  font-weight: 600;
   font-family: 'Geist', sans-serif;
 }
-.velum-mini-cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
-.velum-mini-cal-cell {
-  aspect-ratio: 1; border-radius: 5px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .6rem; color: #6b7280; font-family: 'Geist', sans-serif;
+.rotaset-cal-month-label {
+  font-size: .62rem;
+  font-weight: 700;
+  color: #1a2e20;
+  letter-spacing: .01em;
+  margin-bottom: 6px;
+  font-family: 'Geist', sans-serif;
 }
-.velum-mini-cal-cell.active { background: #3d6b4a; color: white; font-weight: 600; }
-.velum-mini-cal-cell.has-event { background: rgba(61,107,74,0.1); color: #3d6b4a; font-weight: 500; }
-.velum-mini-cal-cell.muted { color: #d1d5db; }
+.rotaset-cal-days-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 3px;
+}
+.rotaset-cal-days-header span {
+  font-size: .4rem;
+  color: #9ca3af;
+  text-align: center;
+  letter-spacing: .02em;
+  font-family: 'Geist', sans-serif;
+  font-weight: 500;
+}
+.rotaset-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+}
+.rcal-cell, .rcal-empty {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .48rem;
+  color: #6b7280;
+  font-family: 'Geist', sans-serif;
+  border-radius: 4px;
+}
+.rcal-today {
+  background: #3d6b4a;
+  color: white !important;
+  font-weight: 700;
+  border-radius: 50%;
+}
+.rcal-study {
+  background: rgba(61,107,74,0.11);
+  color: #3d6b4a;
+  font-weight: 600;
+}
 
 /* ── ABOUT ── */
 .about { background:var(--black); padding:60px 64px; position:relative; overflow:hidden; }
@@ -860,14 +920,24 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
     <!-- Rotaset -->
     <div onclick="window.location='rotaset.html'" class="proj-card proj-card-velum reveal">
       <div class="proj-left">
-        <div class="velum-mini-cal">
-          <div class="velum-mini-cal-row">
-            <div class="velum-mini-cal-day">S</div><div class="velum-mini-cal-day">M</div><div class="velum-mini-cal-day">T</div><div class="velum-mini-cal-day">W</div><div class="velum-mini-cal-day">T</div><div class="velum-mini-cal-day">F</div><div class="velum-mini-cal-day">S</div>
+        <div class="rotaset-preview">
+          <div class="rotaset-preview-header">
+            <div class="rotaset-logo-sq">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-1.96-3 2.5 2.5 0 0 1-1.32-4.24 3 3 0 0 1 .34-5.58 2.5 2.5 0 0 1 1.32-4.24A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 1.96-3 2.5 2.5 0 0 0 1.32-4.24 3 3 0 0 0-.34-5.58 2.5 2.5 0 0 0-1.32-4.24A2.5 2.5 0 0 0 14.5 2z"/></svg>
+            </div>
+            <span class="rotaset-wordmark-text">ROTASET</span>
           </div>
-          <div class="velum-mini-cal-grid">
-            <div class="velum-mini-cal-cell muted">26</div><div class="velum-mini-cal-cell muted">27</div><div class="velum-mini-cal-cell muted">28</div><div class="velum-mini-cal-cell">1</div><div class="velum-mini-cal-cell has-event">2</div><div class="velum-mini-cal-cell">3</div><div class="velum-mini-cal-cell">4</div>
-            <div class="velum-mini-cal-cell">5</div><div class="velum-mini-cal-cell has-event">6</div><div class="velum-mini-cal-cell">7</div><div class="velum-mini-cal-cell">8</div><div class="velum-mini-cal-cell has-event">9</div><div class="velum-mini-cal-cell">10</div><div class="velum-mini-cal-cell">11</div>
-            <div class="velum-mini-cal-cell">12</div><div class="velum-mini-cal-cell">13</div><div class="velum-mini-cal-cell has-event">14</div><div class="velum-mini-cal-cell">15</div><div class="velum-mini-cal-cell active">16</div><div class="velum-mini-cal-cell">17</div><div class="velum-mini-cal-cell">18</div>
+          <div class="rotaset-cal-card">
+            <div class="rotaset-cal-pill-top">Built for med students</div>
+            <div class="rotaset-cal-month-label">April 2026</div>
+            <div class="rotaset-cal-days-header"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+            <div class="rotaset-cal-grid">
+              <div class="rcal-empty"></div><div class="rcal-empty"></div><div class="rcal-empty"></div><div class="rcal-cell">1</div><div class="rcal-cell">2</div><div class="rcal-cell">3</div><div class="rcal-cell">4</div>
+              <div class="rcal-cell">5</div><div class="rcal-cell rcal-today">6</div><div class="rcal-cell">7</div><div class="rcal-cell">8</div><div class="rcal-cell">9</div><div class="rcal-cell">10</div><div class="rcal-cell">11</div>
+              <div class="rcal-cell rcal-study">12</div><div class="rcal-cell">13</div><div class="rcal-cell rcal-study">14</div><div class="rcal-cell">15</div><div class="rcal-cell">16</div><div class="rcal-cell">17</div><div class="rcal-cell">18</div>
+              <div class="rcal-cell">19</div><div class="rcal-cell">20</div><div class="rcal-cell">21</div><div class="rcal-cell rcal-study">22</div><div class="rcal-cell">23</div><div class="rcal-cell">24</div><div class="rcal-cell">25</div>
+              <div class="rcal-cell">26</div><div class="rcal-cell">27</div><div class="rcal-cell">28</div><div class="rcal-cell">29</div><div class="rcal-cell">30</div>
+            </div>
           </div>
         </div>
       </div>
@@ -888,15 +958,14 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
       <div class="proj-left">
         <div class="hearth-preview-solid">
           <div class="hearth-preview-solid-top">
-            <p class="hearth-preview-solid-name">Hearth</p>
-            <p class="hearth-preview-solid-tagline">Caregiver briefing tool</p>
-            <div class="hearth-preview-mini-card">
-              <p class="hearth-preview-mini-label">At a glance</p>
-              <div class="hearth-preview-mini-line"></div>
-              <div class="hearth-preview-mini-line"></div>
+            <div class="hearth-icon-sq">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
             </div>
+            <p class="hearth-preview-solid-name">Hearth</p>
+            <p class="hearth-preview-solid-tagline">Caregiver Briefing Tool</p>
+            <div class="hearth-preview-get-started">Get started</div>
           </div>
-          <div class="hearth-preview-solid-pills">No account &nbsp;·&nbsp; Free &nbsp;·&nbsp; 10 min</div>
+          <div class="hearth-preview-solid-pills">No account · Nothing saved · Completely free · No names needed</div>
         </div>
       </div>
       <div class="proj-right">

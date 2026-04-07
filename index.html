@@ -289,6 +289,29 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .hero-badge-sub { font-size: .54rem; color: var(--dim); letter-spacing: .04em; white-space: nowrap; }
 .hero-badge { min-width: 240px; }
 
+.hero-badge--in-progress {
+  background: linear-gradient(135deg, rgba(147,181,151,0.18) 0%, rgba(100,149,237,0.14) 50%, rgba(186,147,214,0.16) 100%);
+  border-color: rgba(147,181,151,0.25);
+  background-size: 200% 200%;
+  animation: fadeSlideIn .9s ease .85s forwards, gradientShift 4s ease infinite;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.hero-badge--in-progress:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 24px rgba(147,181,151,0.22), 0 2px 8px rgba(100,149,237,0.12);
+}
+.hero-badge--in-progress .hero-badge-sub {
+  background: linear-gradient(90deg, var(--sage) 0%, #7fa7d4 60%, #b493d6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @keyframes fadeSlideIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
 /* Hero scroll-out effect */
@@ -807,13 +830,6 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
 
   <div class="hero-badges">
     <div class="hero-badge">
-      <span class="hero-badge-icon">✦</span>
-      <div class="hero-badge-text">
-        <span class="hero-badge-title">AI Product Management</span>
-        <span class="hero-badge-sub">IBM Certificate · Apr 2026</span>
-      </div>
-    </div>
-    <div class="hero-badge">
       <span class="hero-badge-icon">⬡</span>
       <div class="hero-badge-text">
         <span class="hero-badge-title">CHPA Certified</span>
@@ -825,6 +841,13 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
       <div class="hero-badge-text">
         <span class="hero-badge-title">SQL for Data Science</span>
         <span class="hero-badge-sub">UC Davis Certificate · Jan 2022</span>
+      </div>
+    </div>
+    <div class="hero-badge hero-badge--in-progress">
+      <span class="hero-badge-icon">✦</span>
+      <div class="hero-badge-text">
+        <span class="hero-badge-title">AI Product Management</span>
+        <span class="hero-badge-sub">IBM Certificate · In Progress · Expected Apr 2026</span>
       </div>
     </div>
   </div>

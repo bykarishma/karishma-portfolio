@@ -737,6 +737,30 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
 }
 .hero-cta-btn { animation: cta-glow 3.2s ease-in-out 1.4s infinite; }
 
+/* ── HAMBURGER ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 4px;
+  z-index: 200;
+  position: relative;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--black);
+  transition: transform .3s, opacity .3s;
+  transform-origin: center;
+}
+nav.menu-open .nav-hamburger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+nav.menu-open .nav-hamburger span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
 @media(max-width:900px){
   .hero-inner { padding: 0 28px; }
   .hero-creds { display: none; }
@@ -752,6 +776,59 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
   .hero-ghost-word { display:none; }
   .hero-accent-line { left: 28px; }
   .scroll-cue { left: 28px; }
+  .exp-role-item { grid-template-columns: 1fr; gap: 12px; }
+}
+
+@media(max-width:640px){
+  /* Nav — hamburger */
+  .nav-hamburger { display: flex; }
+  nav { padding-left: 24px; padding-right: 24px; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    z-index: 150;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 1rem; letter-spacing: .12em; }
+
+  /* Hero — stacked */
+  .hero { min-height: auto; flex-direction: column; padding-top: 60px; overflow: visible; }
+  .hero-photo-bg {
+    position: relative;
+    width: 100%; height: 72vw; min-height: 260px; max-height: 420px;
+    top: auto; right: auto; bottom: auto;
+    z-index: 1;
+  }
+  .hero-photo-bg::before {
+    background: linear-gradient(to bottom, transparent 50%, var(--white) 100%);
+  }
+  .hero-inner { padding: 4px 24px 56px; z-index: 2; }
+  .hero-heading { font-size: clamp(2rem, 8vw, 3rem); }
+  .hero-tagline, .hero-intro { max-width: 100%; }
+  .hero-stat-strip { max-width: 100%; }
+  .hero-accent-line, .hero-ghost-word, .scroll-cue, .hero-fadeout { display: none; }
+
+  /* Experience */
+  .exp-summary { padding: 20px; grid-template-columns: 1fr; gap: 16px; }
+  .exp-toggle { align-self: flex-start; }
+  .exp-role-item { padding: 20px; }
+
+  /* Contact */
+  .contact h2 { white-space: normal; font-size: clamp(1.5rem, 7vw, 2.4rem); }
+  .contact { padding-left: 24px; padding-right: 24px; }
+
+  /* About / sections */
+  .about { padding: 48px 24px; }
+  .experience,.projects,.skills { padding-left: 24px; padding-right: 24px; }
+
+  /* Footer */
+  footer { text-align: center; }
 }
 </style>
 </head>
@@ -761,7 +838,10 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
 
 <nav id="nav">
   <a href="#" class="nav-logo">Karishma</a>
-  <ul class="nav-links">
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -1073,6 +1153,20 @@ footer em { font-family:'DM Serif Display',serif; font-style:italic; color:var(-
 
   // Nav scroll
   window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>20));
+
+  // Hamburger menu
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    document.getElementById('nav').classList.toggle('menu-open');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('nav').classList.remove('menu-open');
+      navLinks.classList.remove('open');
+    });
+  });
 
   // Hero scroll fade-out + parallax
   const hero = document.getElementById('hero');

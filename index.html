@@ -246,7 +246,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .hero-cta-link:hover { color: var(--black); }
 
 /* Scroll cue */
-.scroll-cue { display: none; }
+.scroll-cue { display: flex; align-items: center; gap: 8px; }
 .scroll-pip { width:6px; height:6px; border:1px solid var(--sage); border-radius:50%; position:relative; }
 .scroll-pip::after { content:''; position:absolute; inset:1.5px; background:var(--sage); border-radius:50%; animation:pip 2.8s ease-in-out infinite; }
 @keyframes pip { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0;transform:scale(2.2)} }
@@ -1004,7 +1004,7 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
       <em>Karishma.</em>
     </h1>
 
-    <p class="hero-tagline">I started as an intern and spent five years working my way up to owning growth, billing, and 0 to 1 launches. On my own time, I started building in health and caregiving, because that is where I kept finding problems worth solving.</p>
+    <p class="hero-tagline">I showed up as an intern, fell completely in love with the work, and never left.</p>
 
 
 
@@ -1020,7 +1020,7 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
 
   <div class="scroll-cue">
     <div class="scroll-pip"></div>
-    <span>Scroll to explore</span>
+    <span>The story's below</span>
   </div>
 
   <div class="hero-fadeout"></div>

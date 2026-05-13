@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hearth — Case Study | Karishma Amin</title>
+<title>Hearth: Case Study | Karishma Amin</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -773,8 +773,7 @@ body {
       <span class="section-label">The Problem</span>
       <h2 class="section-heading">Nobody does this on day one.</h2>
       <div class="section-body">
-        <p>Most people become caregivers before they feel ready. A diagnosis, a fall, a phone call. Suddenly you are responsible for someone else's health with no roadmap. When my grandmother moved into palliative care and we took care of her at home, I saw that firsthand. The medical side was a learning curve. The emotional side was its own thing entirely. Juggling both, while also understanding that we were actively losing her, was one of the hardest things my family has been through.</p>
-        <p>The tools that existed assumed you had already figured out the basics. We hadn't. Nobody does on day one.</p>
+        <p>Most people become caregivers before they feel ready. A diagnosis, a fall, a phone call, and suddenly you are responsible for someone else's health with no roadmap. When my grandmother moved into palliative care and we cared for her at home, the tools that existed assumed we had already figured out the basics. We hadn't. Nobody does on day one.</p>
       </div>
     </section>
 
@@ -790,11 +789,11 @@ body {
     <!-- KEY DECISIONS -->
     <section class="content-section" id="decisions">
       <span class="section-label">Key Decisions</span>
-      <h2 class="section-heading">Five decisions that shaped the product.</h2>
+      <h2 class="section-heading">The decisions that shaped it.</h2>
 
       <div class="decision">
         <p class="decision-title">Stateless by design</p>
-        <p class="decision-body">The decision to store nothing was the first and most important one. Not a technical constraint but a deliberate product choice. Someone using Hearth is often in crisis. They are not ready to trust a platform with their family's health information, and asking them to was the wrong ask entirely. Removing it removed the barrier between them and something useful.</p>
+        <p class="decision-body">The decision to store nothing was deliberate, not a constraint. Someone in crisis isn't ready to trust a platform with their family's health information, and removing that ask removed the barrier between them and something useful.</p>
       </div>
 
       <div class="decision">
@@ -809,7 +808,7 @@ body {
 
       <div class="decision">
         <p class="decision-title">Accessibility as the core constraint</p>
-        <p class="decision-body">The target user is often older, stressed, on a phone, and not particularly tech comfortable. Every design decision was made against that reality: minimum 18px body text and 48px touch targets throughout, no time limits on any input, WCAG 2.2 AA compliance, visible labels on every field, one primary action per screen, and printable output built into the spec from day one.</p>
+        <p class="decision-body">The target user is often older, stressed, and on a phone: minimum 18px body text, 48px touch targets, no time limits, visible labels on every field, one primary action per screen, WCAG 2.2 AA compliance, and printable output built into the spec from day one.</p>
       </div>
 
       <div class="decision">
@@ -823,10 +822,10 @@ body {
       <span class="section-label">Privacy &amp; Compliance</span>
       <h2 class="section-heading">Three frameworks, evaluated before a line of code was written.</h2>
       <div class="section-body">
-        <p>HIPAA applicability was assessed and documented. Users are guided not to enter anything personally identifying because the tool was designed so it would never need it. That was an architecture decision, not just a policy one.</p>
-        <p>The FTC Health Breach Notification Rule applies to vendors of personal health records. Because Hearth stores nothing, there is nothing to breach and no obligation applies. That outcome was planned, not accidental.</p>
-        <p>The FDA's published guidance on software that helps patients and caregivers organize health information was reviewed. Hearth falls clearly within enforcement discretion. The AI formats and organizes. It never interprets, diagnoses, or makes clinical recommendations. Three distinct disclosure surfaces appear on every output page to make that clear to the user.</p>
-        <p>On the technical side: The Anthropic API key lives exclusively in a Vercel environment variable, never exposed to the client. All Claude API calls route through a serverless function acting as a stateless proxy. User responses are never logged anywhere. A deliberate decision, not an oversight.</p>
+        <p>HIPAA applicability was assessed and documented before building. Users are guided not to enter anything personally identifying because the tool was designed so it would never need it.</p>
+        <p>The FTC Health Breach Notification Rule applies to vendors of personal health records. Because Hearth stores nothing, there is nothing to breach.</p>
+        <p>Hearth falls clearly within FDA enforcement discretion for software that helps patients and caregivers organize health information. The AI formats and organizes; it never interprets, diagnoses, or makes clinical recommendations, and three disclosure surfaces on every output page make that clear.</p>
+        <p>The Anthropic API key lives exclusively in a Vercel environment variable, never exposed to the client, with all Claude calls routed through a serverless function acting as a stateless proxy. User responses are never logged anywhere.</p>
       </div>
     </section>
 

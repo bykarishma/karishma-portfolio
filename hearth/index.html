@@ -160,6 +160,23 @@ body {
   transition: background .25s, transform .2s;
 }
 .hero-cta:hover { background: #5c2028; transform: translateY(-1px); }
+.hero-tech-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 16px;
+}
+.hero-tech-tag {
+  font-size: .55rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: rgba(114,47,55,0.05);
+  border: 1px solid var(--rule);
+  border-radius: 100px;
+  padding: 4px 11px;
+}
 
 /* ── PREVIEW STRIP ── */
 .preview-strip {
@@ -676,12 +693,19 @@ body {
       <span class="hero-label-text">Product Thinking</span>
     </div>
     <h1 class="hero-name">Hearth</h1>
-    <p class="hero-descriptor">Caregiver briefing tool</p>
+    <p class="hero-descriptor">Free caregiving tool</p>
     <div class="hero-status">
       <span class="status-dot"></span>
       LIVE
     </div>
     <a href="https://hearth.today" target="_blank" rel="noopener" class="hero-cta">Open Hearth →</a>
+    <div class="hero-tech-bar">
+      <span class="hero-tech-tag">HIPAA</span>
+      <span class="hero-tech-tag">FHIR R4</span>
+      <span class="hero-tech-tag">Anthropic API</span>
+      <span class="hero-tech-tag">Vercel</span>
+      <span class="hero-tech-tag">GitHub</span>
+    </div>
   </div>
 </section>
 

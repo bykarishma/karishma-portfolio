@@ -246,10 +246,8 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .hero-cta-link:hover { color: var(--black); }
 
 /* Scroll cue */
-.scroll-cue { display: flex; align-items: center; gap: 8px; }
-.scroll-pip { width:6px; height:6px; border:1px solid var(--sage); border-radius:50%; position:relative; }
-.scroll-pip::after { content:''; position:absolute; inset:1.5px; background:var(--sage); border-radius:50%; animation:pip 2.8s ease-in-out infinite; }
-@keyframes pip { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0;transform:scale(2.2)} }
+.scroll-cue { display: flex; align-items: center; gap: 8px; position: absolute; bottom: 32px; left: 48px; }
+.scroll-pip { width:5px; height:5px; background:var(--sage); border-radius:50%; }
 .scroll-cue span { font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--soft); }
 
 .hero-year-badge { display: none; }
@@ -769,7 +767,7 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
   footer { padding:20px 28px; flex-direction:column; gap:6px; }
   .hero-ghost-word { display:none; }
   .hero-accent-line { left: 28px; }
-  .scroll-cue { left: 28px; }
+  .scroll-cue { left: 28px; bottom: 24px; }
   .exp-role-item { grid-template-columns: 1fr; gap: 12px; }
 }
 
@@ -1004,7 +1002,7 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
       <em>Karishma.</em>
     </h1>
 
-    <p class="hero-tagline">I showed up as an intern, fell completely in love with the work, and never left.</p>
+    <p class="hero-tagline">I showed up as an intern and fell in love with it immediately. Over five years I worked through every layer of the job, learning, owning, shipping, until I was running launches end to end. Now I'm ready to take everything I know somewhere new.</p>
 
 
 

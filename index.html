@@ -928,6 +928,41 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
   .how-line { font-size: clamp(1.1rem, 5vw, 1.35rem); }
   .exp-roles::before { display: none; }
 }
+
+/* VINE NAV */
+.vn-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(147,181,151,0.2);
+  border: 1.5px solid rgba(147,181,151,0.28);
+  cursor: pointer;
+  transition: all .35s;
+  position: relative;
+}
+.vn-dot:hover { background: rgba(147,181,151,0.45); border-color: rgba(147,181,151,0.6); }
+.vn-dot.active {
+  background: #5a8a62;
+  border-color: #5a8a62;
+  box-shadow: 0 0 0 4px rgba(90,138,98,0.18), 0 0 0 8px rgba(90,138,98,0.07);
+  animation: vnPulse 2s ease-in-out infinite;
+}
+@keyframes vnPulse {
+  0%,100% { box-shadow: 0 0 0 4px rgba(90,138,98,0.18), 0 0 0 8px rgba(90,138,98,0.07); }
+  50%      { box-shadow: 0 0 0 7px rgba(90,138,98,0.24), 0 0 0 13px rgba(90,138,98,0.05); }
+}
+.vn-stem {
+  width: 1px; height: 40px;
+  background: rgba(147,181,151,0.15);
+  transition: background .5s;
+}
+.vn-stem.lit { background: rgba(147,181,151,0.5); }
+.vn-label {
+  position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+  font-size: .56rem; letter-spacing: .16em; text-transform: uppercase;
+  color: #5a8a62; white-space: nowrap;
+  opacity: 0; transition: opacity .25s; pointer-events: none;
+}
+.vn-dot.active .vn-label { opacity: .7; }
+@media(max-width:640px) { #vine-nav { display: none; } }
 </style>
 </head>
 <body>
@@ -969,35 +1004,9 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
       <em>Karishma.</em>
     </h1>
 
-    <p class="hero-tagline">Product manager. Five years of building real products for real users.</p>
+    <p class="hero-tagline">I started as an intern and spent five years working my way up to owning growth, billing, and 0 to 1 launches. On my own time, I started building in health and caregiving — because that is where I kept finding problems worth solving.</p>
 
-    <p class="hero-intro">I studied economics and technology at UC Davis, figured out early that product was what I wanted to do, and have been running with it since. I started as an intern and grew into owning subscription growth, billing infrastructure, and 0 to 1 launches. I've spent my own time building tools in health and caregiving because it's where I keep finding problems worth solving — and this portfolio shows the work, the thinking, and the why behind all of it.</p>
 
-    <div class="hero-stat-strip">
-      <div class="hero-stat-item">
-        <span class="hero-stat-num">5</span>
-        <span class="hero-stat-desc">Years in product</span>
-      </div>
-      <div class="hero-stat-item">
-        <span class="hero-stat-num">0<em>→1</em></span>
-        <span class="hero-stat-desc">Builder</span>
-      </div>
-    </div>
-
-    <div class="hero-creds">
-      <span class="hero-cred">
-        <span class="hero-cred-dot"></span>
-        CHPA Certified · HIPAA Training · Mar 2026
-      </span>
-      <span class="hero-cred">
-        <span class="hero-cred-dot"></span>
-        SQL for Data Science · UC Davis · Jan 2022
-      </span>
-      <span class="hero-cred">
-        <span class="hero-cred-dot"></span>
-        AI Product Management · IBM · Apr 2026
-      </span>
-    </div>
 
     <div class="hero-cta-row">
       <a href="#experience" class="hero-cta-btn">View my work <span class="hero-cta-btn-arr">↓</span></a>
@@ -1017,13 +1026,6 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
   <div class="hero-fadeout"></div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee">
-  <div class="marquee-track">
-    <span class="marquee-item">Product Strategy</span><span class="marquee-item">0→1 Launches</span><span class="marquee-item">Subscription Products</span><span class="marquee-item">SQL & Amplitude</span><span class="marquee-item">Billing Systems</span><span class="marquee-item">A/B Testing</span><span class="marquee-item">Cross-functional Leadership</span><span class="marquee-item">User Research</span><span class="marquee-item">Figma</span><span class="marquee-item">Agile</span>
-    <span class="marquee-item">Product Strategy</span><span class="marquee-item">0→1 Launches</span><span class="marquee-item">Subscription Products</span><span class="marquee-item">SQL & Amplitude</span><span class="marquee-item">Billing Systems</span><span class="marquee-item">A/B Testing</span><span class="marquee-item">Cross-functional Leadership</span><span class="marquee-item">User Research</span><span class="marquee-item">Figma</span><span class="marquee-item">Agile</span>
-  </div>
-</div>
 
 <!-- EXPERIENCE -->
 <section class="experience" id="experience">
@@ -1348,6 +1350,58 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
   }),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
 
+  // Vine nav
+  (function() {
+    const nav = document.getElementById('vine-nav');
+    const sections = [
+      { id: 'hero',       label: 'Intro' },
+      { id: 'experience', label: 'Experience' },
+      { id: 'projects',   label: 'Projects' },
+      { id: 'contact',    label: 'Contact' }
+    ];
+
+    let dots = [];
+
+    sections.forEach((sec, i) => {
+      if (i > 0) {
+        const stem = document.createElement('div');
+        stem.className = 'vn-stem';
+        stem.id = 'vn-stem-' + i;
+        nav.appendChild(stem);
+      }
+      const dot = document.createElement('div');
+      dot.className = 'vn-dot' + (i === 0 ? ' active' : '');
+      dot.id = 'vn-dot-' + i;
+      const label = document.createElement('div');
+      label.className = 'vn-label';
+      label.textContent = sec.label;
+      dot.appendChild(label);
+      dot.addEventListener('click', () => {
+        const el = document.getElementById(sec.id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      });
+      nav.appendChild(dot);
+      dots.push(dot);
+    });
+
+    function updateVineNav() {
+      const scrollY = window.scrollY + window.innerHeight / 2;
+      let activeIndex = 0;
+      sections.forEach((sec, i) => {
+        const el = document.getElementById(sec.id);
+        if (el && el.offsetTop <= scrollY) activeIndex = i;
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === activeIndex);
+        const stem = document.getElementById('vn-stem-' + i);
+        if (stem) stem.classList.toggle('lit', i <= activeIndex);
+      });
+    }
+
+    window.addEventListener('scroll', updateVineNav, { passive: true });
+    updateVineNav();
+  })();
+
   // Skill tags stagger on scroll
   const tagsObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -1361,5 +1415,6 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
   }, { threshold: 0.1 });
   document.querySelectorAll('.skills-list').forEach(r => tagsObs.observe(r));
 </script>
+<div id="vine-nav" style="position:fixed;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;z-index:400;"></div>
 </body>
 </html>

@@ -130,7 +130,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   display: flex; align-items: center; gap: 12px;
   font-size: .58rem; letter-spacing: .28em; text-transform: uppercase;
   color: var(--sage-deep); margin-bottom: 24px;
-  opacity: 0; animation: fadeSlideIn .9s ease .15s forwards;
+  opacity: 0; animation: fadeOnly 1.1s ease 0s forwards;
 }
 .hero-label-dot { width:5px; height:5px; border-radius:50%; background:var(--sage); flex-shrink:0; }
 .hero-label-rule { width:28px; height:1px; background:var(--sage-lt); }
@@ -144,7 +144,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   letter-spacing: -.02em;
   margin-bottom: 28px;
   opacity: 0;
-  animation: fadeSlideIn 1s ease .25s forwards;
+  animation: fadeOnly 1.1s ease .3s forwards;
 }
 .hero-heading .hero-hi {
   font-family: 'DM Serif Display', serif;
@@ -186,7 +186,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   margin-bottom: 20px;
   margin-top: 8px;
   opacity: 0;
-  animation: fadeSlideIn .9s ease .4s forwards;
+  animation: fadeOnly 1.1s ease .6s forwards;
 }
 
 /* Intro */
@@ -197,7 +197,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   max-width: 380px;
   margin-bottom: 28px;
   opacity: 0;
-  animation: fadeSlideIn .9s ease .52s forwards;
+  animation: fadeOnly 1.1s ease .9s forwards;
 }
 .hero-intro strong { color: var(--black); font-weight: 400; }
 
@@ -205,7 +205,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .hero-stat-strip {
   display: flex; align-items: stretch; gap: 0;
   margin-bottom: 28px;
-  opacity: 0; animation: fadeSlideIn .9s ease .6s forwards;
+  opacity: 0; animation: fadeOnly 1.1s ease 1.1s forwards;
   max-width: 320px;
   border: 1px solid var(--rule); border-radius: 10px;
   overflow: hidden; background: var(--white);
@@ -227,7 +227,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 /* CTA row */
 .hero-cta-row {
   display: flex; align-items: center; gap: 20px;
-  opacity: 0; animation: fadeSlideIn .9s ease .68s forwards;
+  opacity: 0; animation: fadeOnly 1.1s ease 1.5s forwards;
 }
 .hero-cta-btn {
   display: inline-flex; align-items: center; gap: 10px;
@@ -246,13 +246,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .hero-cta-link:hover { color: var(--black); }
 
 /* Scroll cue */
-.scroll-cue {
-  position: absolute; bottom: 36px;
-  left: calc(max(56px, calc((100% - 1080px)/2 + 56px)) + 32px);
-  display: flex; align-items: center; gap: 12px;
-  z-index: 5; opacity: 0;
-  animation: fadeSlideIn .9s ease .92s forwards;
-}
+.scroll-cue { display: none; }
 .scroll-pip { width:6px; height:6px; border:1px solid var(--sage); border-radius:50%; position:relative; }
 .scroll-pip::after { content:''; position:absolute; inset:1.5px; background:var(--sage); border-radius:50%; animation:pip 2.8s ease-in-out infinite; }
 @keyframes pip { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0;transform:scale(2.2)} }
@@ -267,7 +261,7 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
   gap: 6px;
   margin-bottom: 28px;
   opacity: 0;
-  animation: fadeSlideIn .9s ease .65s forwards;
+  animation: fadeOnly 1.1s ease 1.3s forwards;
 }
 .hero-cred {
   display: inline-flex;
@@ -349,16 +343,16 @@ nav.scrolled { background:rgba(253,252,250,.94); backdrop-filter:blur(14px); bor
 .exp-company.open .exp-toggle-label, .exp-company.open .exp-chevron { color:#fff; }
 .exp-roles { max-height:0; overflow:hidden; transition:max-height .6s cubic-bezier(.23,1,.32,1); background:#FAF8F5; }
 .exp-company.open .exp-roles { max-height:1400px; }
-.exp-role-item { padding:24px 40px; border-bottom:1px solid var(--rule); display:grid; grid-template-columns:160px 1fr; gap:32px; align-items:start; }
+.exp-role-item { padding:24px 40px; border-bottom:1px solid var(--rule); display:grid; grid-template-columns:56px 1fr; gap:40px; align-items:start; }
 .exp-role-item:last-child { border-bottom:none; }
 .exp-role-left { padding-top:3px; }
 .exp-role-title { font-size:.88rem; font-weight:500; color:var(--black); margin-bottom:3px; letter-spacing:.01em; line-height:1.3; }
 .exp-role-period { font-size:.68rem; color:var(--sage-deep); letter-spacing:.05em; margin-bottom:6px; font-weight:400; }
 .exp-role-badge { display:inline-block; font-size:.55rem; letter-spacing:.1em; text-transform:uppercase; border:1px solid rgba(147,181,151,.4); border-radius:100px; padding:2px 10px; color:var(--sage-deep); background:rgba(147,181,151,.1); }
 .exp-role-highlights { list-style:none; }
-.exp-role-highlights li { font-size:.83rem; color:var(--dim); line-height:1.65; padding:8px 0; display:flex; gap:12px; border-bottom:1px solid var(--rule); overflow-wrap:break-word; }
+.exp-role-highlights li { font-size:.83rem; color:var(--dim); line-height:1.65; padding:7px 0; display:block; border-bottom:1px solid var(--rule); overflow-wrap:break-word; }
 .exp-role-highlights li:last-child { border-bottom:none; padding-bottom:0; }
-.exp-role-highlights li::before { content:'→'; color:var(--sage); flex-shrink:0; font-size:.75rem; margin-top:3px; }
+.exp-role-highlights li::before { display:none; }
 .exp-role-highlights li strong { color:var(--black); font-weight:500; }
 
 /* ── PROJECTS ── */
@@ -825,16 +819,121 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
 
   /* About / sections */
   .about { padding: 48px 24px; }
-  .experience,.projects,.skills { padding-left: 24px; padding-right: 24px; }
+  .experience,.projects,.skills,.how-i-think { padding-left: 24px; padding-right: 24px; }
 
   /* Footer */
   footer { text-align: center; }
+}
+
+/* ── SCROLL PROGRESS ── */
+#scroll-progress {
+  position: fixed;
+  top: 0; right: 0;
+  width: 2px;
+  height: 0%;
+  background: var(--sage);
+  z-index: 9001;
+  opacity: .5;
+  pointer-events: none;
+}
+
+/* ── FADE ONLY (hero text reveal) ── */
+@keyframes fadeOnly {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── HOW I THINK ── */
+.how-i-think {
+  background: var(--white);
+  padding: 96px max(72px, calc((100% - 1080px)/2 + 72px));
+  border-top: 1px solid var(--rule);
+}
+.how-inner {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+.how-line {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.35rem, 2.1vw, 1.9rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--black);
+  letter-spacing: -.015em;
+}
+
+/* ── SKILL TAGS ── */
+.skills-tags-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill-tag {
+  font-size: .72rem;
+  color: var(--dim);
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 100px;
+  padding: 4px 13px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .4s ease, transform .4s ease, background .2s, color .2s, border-color .2s;
+}
+.skill-tag.in { opacity: 1; transform: translateY(0); }
+.skill-tag:hover { background: var(--sage-bg); color: var(--sage-deep); border-color: var(--sage-lt); }
+
+/* ── EXPERIENCE TIMELINE LINE ── */
+.exp-roles { position: relative; }
+.exp-roles::before {
+  content: '';
+  position: absolute;
+  left: 116px;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--rule) 8%, var(--rule) 92%, transparent);
+  pointer-events: none;
+}
+.exp-role-year {
+  font-size: .6rem;
+  letter-spacing: .06em;
+  color: var(--soft);
+  padding-top: 5px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ── HERO INLINE CUE ── */
+.hero-cue {
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeOnly 1.1s ease 1.8s forwards;
+  display: flex;
+  align-items: center;
+}
+.hero-cue-icon {
+  color: var(--sage-lt);
+  animation: cueBounce 2.2s ease-in-out 2.9s infinite;
+  line-height: 1;
+}
+@keyframes cueBounce {
+  0%, 100% { transform: translateY(0); opacity: .6; }
+  50% { transform: translateY(5px); opacity: 1; }
+}
+
+/* ── PROJECT CARD DESC LIFT ── */
+.proj-body { transition: opacity .3s; opacity: .85; }
+.proj-card:hover .proj-body { opacity: 1; }
+.proj-card-love .proj-body { opacity: 1; }
+
+@media(max-width:640px) {
+  .how-i-think { padding: 64px 24px; }
+  .how-line { font-size: clamp(1.1rem, 5vw, 1.35rem); }
+  .exp-roles::before { display: none; }
 }
 </style>
 </head>
 <body>
 <div id="cur"></div>
 <div id="ring"></div>
+<div id="scroll-progress"></div>
 
 <nav id="nav">
   <a href="#" class="nav-logo">Karishma</a>
@@ -866,12 +965,13 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
     </div>
 
     <h1 class="hero-heading">
-      <span class="hero-hi">Hi, I'm</span>
-      <em>Karishma</em>
-      <span class="hero-role">Product Manager. Builder. Curious.</span>
+      Hi, I'm
+      <em>Karishma.</em>
     </h1>
 
-    <p class="hero-tagline">I work best when the problem is real and the stakes are high. I find the gap, own the solution, and ship something that actually helps.</p>
+    <p class="hero-tagline">Product manager. Five years of building real products for real users.</p>
+
+    <p class="hero-intro">I studied economics and technology at UC Davis, figured out early that product was what I wanted to do, and have been running with it since. I started as an intern and grew into owning subscription growth, billing infrastructure, and 0 to 1 launches. I've spent my own time building tools in health and caregiving because it's where I keep finding problems worth solving — and this portfolio shows the work, the thinking, and the why behind all of it.</p>
 
     <div class="hero-stat-strip">
       <div class="hero-stat-item">
@@ -902,6 +1002,10 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
     <div class="hero-cta-row">
       <a href="#experience" class="hero-cta-btn">View my work <span class="hero-cta-btn-arr">↓</span></a>
       <a href="#contact" class="hero-cta-link">Get in touch →</a>
+    </div>
+
+    <div class="hero-cue">
+      <svg class="hero-cue-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,9 12,15 18,9"/></svg>
     </div>
   </div>
 
@@ -946,41 +1050,44 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
     </div>
     <div class="exp-roles">
       <div class="exp-role-item">
-        <div class="exp-role-left">
+        <div class="exp-role-year">2024</div>
+        <div class="exp-role-content">
           <p class="exp-role-title">Product Manager II</p>
           <p class="exp-role-period">Jan 2024 — Apr 2026</p>
           <span class="exp-role-badge">Remote</span>
+          <ul class="exp-role-highlights">
+            <li>Built add-on monetization from scratch, tripling upgrade rates by redesigning paywall and checkout flows to better match user intent at the moment of decision</li>
+            <li>Redesigned the free trial experience end-to-end, increasing trial-to-paid conversion 27x</li>
+            <li>Launched Group Plans from 0 to 900+ subscribers, opening a new acquisition channel and extending household reach</li>
+          </ul>
         </div>
-        <ul class="exp-role-highlights">
-          <li>Built add-on monetization from scratch, tripling upgrade rates by redesigning paywall and checkout flows to better match user intent at the moment of decision</li>
-          <li>Redesigned the free trial experience end-to-end, increasing trial-to-paid conversion 27x</li>
-          <li>Launched Group Plans from 0 to 900+ subscribers, opening a new acquisition channel and extending household reach</li>
-        </ul>
       </div>
       <div class="exp-role-item">
-        <div class="exp-role-left">
+        <div class="exp-role-year">2022</div>
+        <div class="exp-role-content">
           <p class="exp-role-title">Product Manager</p>
           <p class="exp-role-period">Jul 2022 — Dec 2023</p>
           <span class="exp-role-badge">Remote</span>
+          <ul class="exp-role-highlights">
+            <li>Led beta launch of Helium's first consumer plan, reaching 81k users with 24% 90-day retention</li>
+            <li>Restructured plan tiers and pricing to reduce churn and improve LTV alignment across subscriber cohorts</li>
+            <li>Served as acting product lead during leadership transition, maintaining roadmap velocity and cross-functional alignment</li>
+            <li>Owned billing infrastructure buildout: payments, taxes, and fraud monitoring from scratch</li>
+            <li>Built SQL and Amplitude dashboards to track subscription health, funnel performance, and payment anomalies</li>
+          </ul>
         </div>
-        <ul class="exp-role-highlights">
-          <li>Led beta launch of Helium's first consumer plan, reaching 81k users with 24% 90-day retention</li>
-          <li>Restructured plan tiers and pricing to reduce churn and improve LTV alignment across subscriber cohorts</li>
-          <li>Served as acting product lead during leadership transition, maintaining roadmap velocity and cross-functional alignment</li>
-          <li>Owned billing infrastructure buildout: payments, taxes, and fraud monitoring from scratch</li>
-          <li>Built SQL and Amplitude dashboards to track subscription health, funnel performance, and payment anomalies</li>
-        </ul>
       </div>
       <div class="exp-role-item">
-        <div class="exp-role-left">
+        <div class="exp-role-year">2021</div>
+        <div class="exp-role-content">
           <p class="exp-role-title">Product Intern</p>
           <p class="exp-role-period">Sep 2021 — Jun 2022</p>
           <span class="exp-role-badge">Remote</span>
+          <ul class="exp-role-highlights">
+            <li>Improved the Helium Console device management experience, redesigning key flows to increase mobile engagement by 15%</li>
+            <li>Developed prioritization instincts through roadmap research with 7,000+ users, learning to distinguish signal from noise before building</li>
+          </ul>
         </div>
-        <ul class="exp-role-highlights">
-          <li>Improved the Helium Console device management experience, redesigning key flows to increase mobile engagement by 15%</li>
-          <li>Developed prioritization instincts through roadmap research with 7,000+ users, learning to distinguish signal from noise before building</li>
-        </ul>
       </div>
     </div>
   </div>
@@ -1030,7 +1137,7 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
     </div>
 
     <!-- Hearth -->
-    <div onclick="window.location='hearth.html'" class="proj-card proj-card-hearth reveal d1">
+    <div onclick="window.location='/hearth'" class="proj-card proj-card-hearth reveal d1">
       <div class="proj-left">
         <div class="hearth-preview-solid">
           <div class="hearth-preview-solid-top">
@@ -1093,6 +1200,15 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
   </div>
 </section>
 
+<!-- HOW I THINK -->
+<section class="how-i-think">
+  <div class="how-inner">
+    <p class="how-line reveal">I research before I build. Every project on this page started with weeks of reading before a line of code.</p>
+    <p class="how-line reveal d1">I make decisions I can defend. The case studies aren't just what I built — they're why I made the calls I made.</p>
+    <p class="how-line reveal d2">I work best when the problem actually matters.</p>
+  </div>
+</section>
+
 <!-- SKILLS -->
 <section class="skills" id="skills">
   <div class="skills-header reveal">
@@ -1100,22 +1216,53 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
     <h2>What I bring<br><em>to the table.</em></h2>
   </div>
 
-  <div class="skills-list reveal">
+  <div class="skills-list">
     <div class="skills-row">
       <span class="skills-cat">Product &amp; Strategy</span>
-      <p class="skills-tags">0→1 Development, Subscription &amp; Monetization, Onboarding &amp; Lifecycle Design, Roadmap Ownership, A/B Testing</p>
+      <div class="skills-tags-wrap">
+        <span class="skill-tag">0→1 Development</span>
+        <span class="skill-tag">Subscription &amp; Monetization</span>
+        <span class="skill-tag">Onboarding &amp; Lifecycle Design</span>
+        <span class="skill-tag">Roadmap Ownership</span>
+        <span class="skill-tag">A/B Testing</span>
+      </div>
     </div>
     <div class="skills-row">
       <span class="skills-cat">Technical &amp; Data</span>
-      <p class="skills-tags">SQL, PostgreSQL, Funnel Analytics, Payments &amp; Fraud Monitoring, Anthropic Claude API, Prompt Engineering, Next.js, React, Supabase, Google OAuth, Vercel, TypeScript</p>
+      <div class="skills-tags-wrap">
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">Funnel Analytics</span>
+        <span class="skill-tag">Payments &amp; Fraud Monitoring</span>
+        <span class="skill-tag">Anthropic Claude API</span>
+        <span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">Next.js</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Supabase</span>
+        <span class="skill-tag">Google OAuth</span>
+        <span class="skill-tag">Vercel</span>
+        <span class="skill-tag">TypeScript</span>
+      </div>
     </div>
     <div class="skills-row">
       <span class="skills-cat">Tools</span>
-      <p class="skills-tags">Linear, Notion, Stripe, Braze, Figma, Amplitude, Avalara</p>
+      <div class="skills-tags-wrap">
+        <span class="skill-tag">Linear</span>
+        <span class="skill-tag">Notion</span>
+        <span class="skill-tag">Stripe</span>
+        <span class="skill-tag">Braze</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Amplitude</span>
+        <span class="skill-tag">Avalara</span>
+      </div>
     </div>
     <div class="skills-row">
       <span class="skills-cat">Health &amp; Compliance</span>
-      <p class="skills-tags">HIPAA, Certified HIPAA Professional (CHPA), Compliance-Aware Environments</p>
+      <div class="skills-tags-wrap">
+        <span class="skill-tag">HIPAA</span>
+        <span class="skill-tag">Certified HIPAA Professional (CHPA)</span>
+        <span class="skill-tag">Compliance-Aware Environments</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1186,16 +1333,33 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
     lbl.textContent = el.classList.contains('open') ? 'Hide' : 'My experience';
   }
 
+  // Scroll progress bar
+  const progressBar = document.getElementById('scroll-progress');
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.height = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+
   // Reveal on scroll
   const obs=new IntersectionObserver(es=>es.forEach(e=>{
     if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
   }),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
-  // Skills stagger trigger
-  const skillsObs=new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('in');skillsObs.unobserve(e.target);}
-  }),{threshold:.1});
-  document.querySelectorAll('.skills-list').forEach(r=>skillsObs.observe(r));
+
+  // Skill tags stagger on scroll
+  const tagsObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.skill-tag').forEach((tag, i) => {
+          setTimeout(() => tag.classList.add('in'), i * 50);
+        });
+        tagsObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.skills-list').forEach(r => tagsObs.observe(r));
 </script>
 </body>
 </html>

@@ -1344,7 +1344,10 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
 
   // Vine nav
   (function() {
-    const nav = document.getElementById('vine-nav');
+    const nav = document.createElement('div');
+    nav.id = 'vine-nav';
+    nav.setAttribute('style', 'position:fixed;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;z-index:400;');
+    document.body.appendChild(nav);
     const sections = [
       { id: 'hero',       label: 'Intro' },
       { id: 'experience', label: 'Experience' },
@@ -1406,7 +1409,6 @@ nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) r
     });
   }, { threshold: 0.05 });
   document.querySelectorAll('.skills-row').forEach(r => tagsObs.observe(r));
-<div id="vine-nav" style="position:fixed;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;z-index:400;"></div>
 </script>
 </body>
 </html>
